@@ -1,0 +1,17 @@
+
+void func(x)
+{
+    a = 3;
+    x= x + a;
+    return x;
+}
+
+void main()
+{
+    x = 12;
+    if(x > 0)
+        x = func(x) * 2;
+
+    print(x);
+    return(0);
+}
