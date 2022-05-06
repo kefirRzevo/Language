@@ -9,13 +9,10 @@
 #include <string.h>
 #include <time.h>
 
-
 #define SPECIFICATOR "p"
 
-
-const size_t INITIAL_CAPACITY = 10;
-const size_t     MAX_CAPACITY = 1280;
-
+const size_t INIT_CAPACITY = 10;
+const size_t  MAX_CAPACITY = 1280;
 
 struct array
 {
@@ -39,6 +36,5 @@ int array_realloc(array* const p_array, size_t new_capacity);
 int array_dump(const array* const p_array, const char* dump_file_path);
 
 void dump_init(FILE* fp, const array* const p_array);
-
 
 #endif

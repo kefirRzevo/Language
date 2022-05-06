@@ -6,8 +6,19 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "../src/array/array.h"
+#include "../array.h"
 
+enum tok_keyword
+{
+    #define LINKABLE(X) X
+    #define UNLINKABLE(X) X
+    #define KEYWORD(name, keyword, ident)   \
+        name = keyword,
+        #include "../../KEYWORDS"
+    #undef LINKABLE
+    #undef UNLINKABLE 
+    #undef KEYWORD        
+};
 
 enum tok_type
 {
@@ -30,9 +41,8 @@ struct token
     tok_type  type; 
 };
 
-token* tokenize(const char* file_path, array* idents, array* tokens);
 
-int    tokens_dump(const array* const tokens, const char* dump_file_path);
+token* tokenize(const char* file_path, array* idents, array* tokens);
 
 
 #endif 

@@ -1,7 +1,8 @@
 #include "../include/frontend/lexer.h"
 
-
+static const char* keyword_string(int type);
 static size_t create_buf(const char* file_path, char** buf);
+static int    tokens_dump(const array* const tokens, const char* dump_file_path);
 
 static void skip_spaces();
 static void find_ending(size_t* token_length);
@@ -210,6 +211,30 @@ static void find_ending(size_t* token_length)
 }
 
 
+#define make_keyword(A, B)                                          \
+    if(!make_keyword(A, B))                                         \
+    {                                                               \
+        free(buf);                                                  \
+        fprintf(stderr, "Allocation error at line %d\n", __LINE__); \
+        return nullptr;                                             \
+    }
+
+#define make_ident(A, B, C, D)                                      \
+    if(!make_ident(A, B, C, D))                                     \
+    {                                                               \
+        free(buf);                                                  \
+        fprintf(stderr, "Allocation error at line %d\n", __LINE__); \
+        return nullptr;                                             \
+    }
+
+#define make_number(A)                                              \
+    if(!make_number(A))                                             \
+    {                                                               \
+        free(buf);                                                  \
+        fprintf(stderr, "Allocation error at line %d\n", __LINE__); \
+        return nullptr;                                             \
+    }
+
 token* tokenize(const char* file_path, array* idents, array* tokens)
 {
     char*  buf = nullptr;
@@ -236,17 +261,13 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
 
         if(isdigit(*iterator))
         {
-            if(!make_number(tokens))
-                return nullptr;
-
+            make_number(tokens);
             continue;
         }
 
         if(is_unlinkable(&keyword, &keyword_length))
         {
-            if(!make_keyword(tokens, keyword))
-                return nullptr;
-
+            make_keyword(tokens, keyword);
             iterator += keyword_length;
             continue;
         }
@@ -255,18 +276,17 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
 
         if(is_linkable(&keyword, &keyword_length) && keyword_length == token_length)
         {
-            if(!make_keyword(tokens, keyword))
-                return nullptr;
-            
+            make_keyword(tokens, keyword)
             iterator += keyword_length;
             continue;
         }
 
-        if(!make_ident(tokens, idents, iterator, token_length))
-            return nullptr;
+        make_ident(tokens, idents, iterator, token_length)
 
         iterator += token_length;    
     }
+
+    make_keyword(tokens, KEY_STOP)
 
     free(buf);
     tokens_dump(tokens, "logfiles/token_dump.txt");
@@ -274,8 +294,12 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
     return (token* )tokens->data;
 }
 
+#undef make_keyword
+#undef make_ident
+#undef make_number 
 
-const char* keyword_string(int type)
+
+static const char* keyword_string(int type)
 {
     #define LINKABLE(X)  X
     #define UNLINKABLE(X) X
@@ -293,7 +317,7 @@ const char* keyword_string(int type)
 }
 
 
-int tokens_dump(const array* const tokens, const char* dump_file_path)
+static int tokens_dump(const array* const tokens, const char* dump_file_path)
 {
     assert(tokens);
     FILE* fp = fopen(dump_file_path, "w");
@@ -301,7 +325,7 @@ int tokens_dump(const array* const tokens, const char* dump_file_path)
         return 0;
     
     dump_init(fp, tokens);
-    fprintf(fp, "|==========|==========|=============================|\n");
+    fprintf(fp, "|====|==========|==========|========================|\n");
 
     for(size_t i = 0; i < tokens->size; i++)
     {
@@ -309,16 +333,16 @@ int tokens_dump(const array* const tokens, const char* dump_file_path)
         switch(temp_token.type)
         {
             case KEYWORD:
-                fprintf(fp, "|LINE: %-4zu|KEYWORD   |VALUE:   %-20s|\n"
-                            "|==========|==========|=============================|\n", temp_token.line, keyword_string(temp_token.value.keyword));
+                fprintf(fp, "|%-4zu|LINE: %-4zu|KEYWORD   |VALUE:   %-15s|\n"
+                            "|====|==========|==========|========================|\n", i + 1, temp_token.line, keyword_string(temp_token.value.keyword));
                 break;
             case NUMBER:
-                fprintf(fp, "|LINE: %-4zu|NUMBER    |VALUE:   %-20lg|\n"
-                            "|==========|==========|=============================|\n", temp_token.line, temp_token.value.number);
+                fprintf(fp, "|%-4zu|LINE: %-4zu|NUMBER    |VALUE:   %-15lg|\n"
+                            "|====|==========|==========|========================|\n", i + 1, temp_token.line, temp_token.value.number);
                 break;
             case IDENT:
-                fprintf(fp, "|LINE: %-4zu|IDENT     |VALUE:   %-20s|\n"
-                            "|==========|==========|=============================|\n", temp_token.line, temp_token.value.ident);
+                fprintf(fp, "|%-4zu|LINE: %-4zu|IDENT     |VALUE:   %-15s|\n"
+                            "|====|==========|==========|========================|\n", i + 1, temp_token.line, temp_token.value.ident);
                 break;
             default:
                 break;

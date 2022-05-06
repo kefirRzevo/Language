@@ -1,0 +1,41 @@
+    //universal
+        OPER(STATEMENT, 0,  "statement")
+        OPER(ASSIGN,    1,  "=")
+        OPER(NOT,       2,  "!")
+    //arithmetic
+        //binary
+        OPER(ADD,       3,  "+")
+        OPER(SUB,       4,  "-")
+        OPER(MUL,       5,  "*")
+        OPER(DIV,       6,  "/")
+        OPER(POW,       7,  "^")
+        //unary
+        OPER(SIN,       8,  "sin")
+        OPER(COS,       9,  "cos")
+        //boolean
+        OPER(OR,        10, "||")
+        OPER(AND,       11, "&&")
+        //compare
+        OPER(GR,        12, ">")
+        OPER(LOW,       13, "<")
+        OPER(NGR,       14, "<=")
+        OPER(NLOW,      15, ">=")
+        OPER(EQUAL,     16, "==")
+        OPER(NEQUAL,    17, "!=")
+    //functions
+        //general
+        OPER(DEF,       18, "define")
+        OPER(FUNC,      19, "function")
+        OPER(RET,       20, "return")
+        OPER(PARAM,     21, "parameter")
+        OPER(CALL,      22, "call")
+        //my
+        OPER(PRINT,     23, "print")
+        OPER(SCAN,      24, "scan")
+    //ifs
+        OPER(IF,        25, "if")
+        OPER(DECISION,  26, "decision")
+    //loops
+        OPER(WHILE,     27, "while")
+    //consts
+        OPER(CONST,     28, "const")

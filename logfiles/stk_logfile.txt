@@ -1,0 +1,355 @@
+STACK LOGFILE
+Time: 23:33:12
+Day:  Friday
+=======================================================================================
+|Name_stack: |Command:    |Argument:     |Stack size: |Status?                         
+|            |            |              |            |                                
+=======================================================================================
+|            |            |              |            |                                
+|&garbage_stk|stack_ctor  | -            |0           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c000|1           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c020|2           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c040|3           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c060|4           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c080|5           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c0a0|6           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c0c0|7           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c0e0|8           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c100|9           |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c120|10          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c140|11          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c160|12          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c180|13          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c1a0|14          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c1c0|15          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c1e0|16          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c200|17          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c220|18          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c240|19          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c260|20          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c280|21          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c2a0|22          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c2c0|23          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c2e0|24          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c300|25          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c320|26          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c340|27          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c360|28          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c380|29          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c3a0|30          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c3c0|31          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c3e0|32          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c400|33          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c420|34          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c440|35          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c460|36          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c480|37          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c4a0|38          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c4c0|39          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c4e0|40          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c500|41          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c520|42          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c540|43          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c560|44          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c580|45          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c5a0|46          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c5c0|47          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c5e0|48          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c600|49          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c620|50          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c640|51          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c660|52          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c680|53          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c6a0|54          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c6c0|55          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c6e0|56          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c700|57          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c720|58          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c740|59          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c760|60          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c780|61          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c7a0|62          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c7c0|63          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c7e0|64          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c800|65          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c820|66          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c840|67          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c860|68          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c880|69          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c8a0|70          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c8c0|71          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c8e0|72          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c900|73          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c920|74          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c940|75          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c960|76          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c980|77          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c9a0|78          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c9c0|79          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3c9e0|80          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ca00|81          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ca20|82          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ca40|83          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ca60|84          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ca80|85          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3caa0|86          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cac0|87          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cae0|88          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cb00|89          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cb20|90          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cb40|91          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cb60|92          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cb80|93          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cba0|94          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cbc0|95          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cbe0|96          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cc00|97          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cc20|98          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cc40|99          |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cc60|100         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cc80|101         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cca0|102         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ccc0|103         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cce0|104         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cd00|105         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cd20|106         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cd40|107         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cd60|108         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cd80|109         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cda0|110         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cdc0|111         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cde0|112         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ce00|113         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ce20|114         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ce40|115         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ce60|116         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3ce80|117         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cea0|118         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cec0|119         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cee0|120         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cf00|121         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cf20|122         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cf40|123         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cf60|124         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cf80|125         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cfa0|126         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cfc0|127         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3cfe0|128         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d000|129         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d020|130         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d040|131         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d060|132         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d080|133         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d0a0|134         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d0c0|135         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d0e0|136         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d100|137         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d120|138         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d140|139         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d160|140         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d180|141         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d1a0|142         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d1c0|143         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d1e0|144         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d200|145         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d220|146         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d240|147         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d260|148         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d280|149         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d2a0|150         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d2c0|151         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d2e0|152         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d300|153         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d320|154         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d340|155         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d360|156         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d380|157         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d3a0|158         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d3c0|159         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d3e0|160         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d400|161         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d420|162         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d440|163         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d460|164         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d480|165         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d4a0|166         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d4c0|167         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d4e0|168         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d500|169         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d520|170         |OK
+|            |            |              |            |
+|&garbage_stk|stack_push  |0x600002a3d540|171         |OK
+|            |            |              |            |
+|&garbage_stk|stack_dtor  | -            |0           |OK
+|            |            |              |            |
+THIS IS THE END!

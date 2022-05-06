@@ -1,0 +1,69 @@
+
+    Grammar := {
+        ['int' FuncDef | 
+        Assign]
+        }*
+
+
+    FuncDef  := 
+        ident '(' 
+        [')' | 
+        ident {',' ident }* ')']
+        Block
+
+
+    Assign := ['const']
+        ident
+        ['=' Expression ';' | 
+        '[' number ']' '=' '{' number {',' number}* '}' ';' |
+        '[' Expression ']' '=' Expression ';']
+
+
+    Function := 
+        [ident '('
+        [')' | 
+        Expression {',' Expression}* ')']]
+
+
+    Block := 
+        '{' {Operation}* '}' | 
+        Operation ]
+
+
+    Operation :=
+        ['return' Expression ';' |
+        'if' '(' Expression ')' Block ['else' Block}] |
+        'while' '(' Expression ')' Block |
+        'print' '(' Expression ')' ';' | 
+        'scan' '(' Expression ')' ';' |
+        Function ';' |              #'(' after ident
+        Assign |]
+
+
+    Expression := 
+       ['!'] Compare {['||' | '&&'] ['!'] Compare}*
+
+
+    Compare := 
+        Boolean ['>' | '<' | '>=' | '<=' | '==' | '!=' Boolean]
+
+
+    Boolean := 
+        T {'+' | '-']T}*
+
+
+    T:= 
+        P {['*' | '/']P}*
+
+
+    P:= 
+        U {'^'U}*
+
+
+    U:= 
+        ['(' Expression ')' |
+        'sin' '(' Expression ')' |
+        'cos' '(' Expression ')' |
+        number |
+        ident |                 #no '(' after
+        Function]

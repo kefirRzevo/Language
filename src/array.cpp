@@ -1,16 +1,16 @@
-#include "../../include/src/array/array.h"
-#include "../../include/frontend/lexer.h"
+#include "../include/array.h"
+
 
 int array_ctor(array* const p_array, size_t item_size)
 {
-    void* data  = (void* ) calloc(INITIAL_CAPACITY, item_size);
+    void* data  = (void* ) calloc(INIT_CAPACITY, item_size);
 
     if(!data)
         return 0;
 
     p_array->data      = data;
     p_array->size      = 0;
-    p_array->capa      = INITIAL_CAPACITY;
+    p_array->capa      = INIT_CAPACITY;
     p_array->item_size = item_size;
     return 1;
 } 
