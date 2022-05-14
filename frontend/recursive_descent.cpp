@@ -6,7 +6,6 @@
 
 static       size_t iterator    = 0;
 static const token* p_tokens    = nullptr;
-static       stack  garbage_stk = {};
 
 
 static Node* GetGrammar();
@@ -23,43 +22,46 @@ static Node* GetP();
 static Node* GetU();
 
 static const char* keyword_string(int type);
-static int   is_keyword(size_t position, const int name);
-static char*   is_ident(size_t position);
-static double is_number(size_t position);
+static int    is_keyword(size_t position, const int name);
+static char*  is_ident  (size_t position);
+static double is_number (size_t position);
 static size_t is_natural(double number);
+static Node*  print_error(const char* waited);
 
 static Node* create_oper(OperType type,  Node* lnode, Node* rnode);
 static Node* create_ident(char*   ident, Node* lnode, Node* rnode);
 static Node* create_num(double    num,   Node* lnode, Node* rnode);
 
 
-#define ass(X)  if(!X) return nullptr
-#define DEBUG
+static Node* print_error(const char* waited)
+{
+    fprintf(stderr, "%d\tMistake at line %zu: waited \"%s\", in fact ", __LINE__, p_tokens[iterator].line, waited);  
+    switch(p_tokens[iterator].type)                                                                             
+    {                                                                                                           
+        case KEYWORD:   
+            fprintf(stderr, "KEYWORD \"%s\".\n", keyword_string(p_tokens[iterator].value.keyword)); 
+            break;                                                                                  
+        case IDENT:    
+            fprintf(stderr, "IDENTIFICATOR \"%s\".\n", p_tokens[iterator].value.ident);             
+            break;                                                                                  
+        case NUMBER:    
+            fprintf(stderr, "NUMBER \"%lg\".\n", p_tokens[iterator].value.number);                  
+            break;                                                                                  
+        default:        
+            fprintf(stderr, "unpredictable error.\n");
+    }
+    return nullptr;
+}
 
-/*
-#ifdef DEBUG
+#define ass(X)  do { if(!X) return nullptr; } while(0)
+
+
+//#ifdef DEBUG
 #define $$ fprintf(stderr, "%d\t%zu\n", __LINE__, iterator);
-#endif
-#ifndef DEBUF
+//#endif
+/*#ifndef DEBUF
 #define $$
-#endif
-*/
-
-#define is_error(X)                                                                                                 \
-    {                                                                                                               \
-        fprintf(stderr, "%d\tMistake at line %zu: waited \"%s\", in fact ", __LINE__, p_tokens[iterator].line, X);  \
-        switch(p_tokens[iterator].type)                                                                             \
-        {                                                                                                           \
-            case KEYWORD:   fprintf(stderr, "KEYWORD \"%s\".\n", keyword_string(p_tokens[iterator].value.keyword)); \
-                            break;                                                                                  \
-            case IDENT:     fprintf(stderr, "IDENTIFICATOR \"%s\".\n", p_tokens[iterator].value.ident);             \
-                            break;                                                                                  \
-            case NUMBER:    fprintf(stderr, "NUMBER \"%lg\".\n", p_tokens[iterator].value.number);                  \
-                            break;                                                                                  \
-            default:        fprintf(stderr, "unpredictable error.\n");                                              \
-        }                                                                                                           \
-        return nullptr;                                                                                             \
-    }                                                                                                               
+#endif*/
 
 
 static const char* keyword_string(int type)
@@ -124,7 +126,6 @@ static Node* create_oper(OperType type, Node* lnode, Node* rnode)
     if(!new_node)
         return nullptr;
 
-    StackPush(&garbage_stk, new_node);
     new_node->Type            = OPER;
     new_node->Value.oper_type = type;
     new_node->Left            = lnode;
@@ -140,7 +141,6 @@ static Node* create_ident(char* ident, Node* lnode, Node* rnode)
     if(!new_node)
         return nullptr;
 
-    StackPush(&garbage_stk, new_node);
     new_node->Type         = ID;
     new_node->Value.ident  = ident;
     new_node->Left         = lnode;
@@ -159,7 +159,6 @@ static Node* create_num(double num, Node* lnode, Node* rnode)
     if(!new_node)
         return nullptr;
 
-    StackPush(&garbage_stk, new_node);
     new_node->Type         = NUM;
     new_node->Value.number = num;
     new_node->Left         = lnode;
@@ -174,28 +173,30 @@ static Node* GetGrammar()
 {
     Node* node = nullptr;
 
-    while(!is_keyword(iterator, KEY_STOP))
+    while(!is_keyword(iterator, KEY_STOP) && (is_ident(iterator) || is_keyword(iterator, KEY_CONST)))
     {
-        if(is_keyword(iterator, KEY_INT))
-        {
-            iterator++;
-
-            Node* new_node  = create_oper(STATEMENT, node, GetFuncDef());
-            ass(new_node->Right);
-            node = new_node;
-        }
-        else if(is_ident(iterator) || is_keyword(iterator, KEY_CONST))
-        {
-            Node* new_node = create_oper(STATEMENT, node, GetAssign());
-            ass(new_node->Right);
-
-            node = new_node;
-        }
-        else 
-        {
-            is_error("function defenition or global assignment");
-        }
+        Node* new_node = create_oper(STATEMENT, node, GetAssign());
+        ass(new_node->Right);
+        node = new_node;
     }
+    while(!is_keyword(iterator, KEY_STOP) && is_keyword(iterator, KEY_INT))
+    {
+        iterator++;
+
+        Node* new_node  = create_oper(STATEMENT, node, GetFuncDef());
+        ass(new_node->Right);
+        node = new_node;        
+    }
+    if(is_keyword(iterator, KEY_CONST) || is_ident(iterator) && is_keyword(iterator + 1, KEY_ASSIGN) ||
+                                          is_ident(iterator) && is_keyword(iterator + 1, KEY_QOPEN ))
+    {
+        return print_error("assignment at the beginning");
+    }
+    if(!is_keyword(iterator, KEY_STOP)) 
+    {
+        return print_error("function defenition or global assignment");
+    }
+
     return node;
 }
 
@@ -234,11 +235,11 @@ static Node* GetFuncDef()
             if(is_keyword(iterator, KEY_CLOSE))
                 iterator++;
             else
-                is_error(")");
+                return print_error(")");
         }
         else
         {
-            is_error("parameters or void function");
+            return print_error("parameters or void function");
         }
 
         if(is_keyword(iterator, KEY_BEGIN))
@@ -248,14 +249,14 @@ static Node* GetFuncDef()
         }
         else
         {
-            is_error("block start {");
+            return print_error("block start {");
         }
 
         node = new_node;
     }
     else
     {
-        is_error("function identificator (...)");
+        return print_error("function identificator (...)");
     }
     
     return node;
@@ -281,11 +282,11 @@ static Node* GetAssign()
 
             Node* new_node = nullptr;
             if(is_const)
-                new_node = create_oper(ASSIGN, create_ident(is_ident(iterator - 2), create_oper(CONST, nullptr, nullptr), nullptr), GetExpression());
+                new_node = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(is_ident(iterator - 2), create_oper(CONST, nullptr, nullptr), nullptr), GetExpression()));
             else
-                new_node = create_oper(ASSIGN, create_ident(is_ident(iterator - 2), nullptr, nullptr), GetExpression());
-
-            ass(new_node->Right);
+                new_node = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(is_ident(iterator - 2), nullptr, nullptr), GetExpression()));
+            ass(new_node->Right->Right);
+            
             node = new_node;
         }
         else if(is_keyword(iterator + 1, KEY_QOPEN)  && is_number(iterator + 2) && is_keyword(iterator + 3, KEY_QCLOSE) 
@@ -298,16 +299,16 @@ static Node* GetAssign()
             iterator+=7;
 
             if(!mas_size)
-                is_error("natural number");
+                return print_error("natural number");
 
             Node* new_node = nullptr;
 
             if(is_const)
-                new_node = create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
-                                               nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr));
+                new_node = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
+                                                  nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr)));
             else
-                new_node = create_oper(ASSIGN, create_ident(mas_ident, nullptr, create_num((double)mas_index, 
-                                               nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr));
+                new_node = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, nullptr, create_num((double)mas_index, 
+                                                  nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr)));
             node = new_node;
 
             mas_index++;
@@ -317,12 +318,12 @@ static Node* GetAssign()
                 while(mas_index < mas_size)
                 {
                     if(is_const)
-                        new_node = create_oper(STATEMENT, node, create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
-                                                          nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr)));
+                        new_node->Left = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
+                                                                nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr)));
                     else
-                        new_node = create_oper(STATEMENT, node, create_oper(ASSIGN, create_ident(mas_ident, nullptr, create_num((double)mas_index, 
-                                                          nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr)));
-                    node = new_node;
+                        new_node->Left = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, nullptr, create_num((double)mas_index, 
+                                                                nullptr, nullptr)), create_num(is_number(iterator - 1), nullptr, nullptr)));
+                    new_node = new_node->Left;
 
                     mas_index++;
                 }
@@ -332,23 +333,23 @@ static Node* GetAssign()
                 while(is_keyword(iterator, KEY_COMMA) && is_number(iterator + 1) && !is_keyword(iterator + 1, KEY_STOP))
                 {
                     if(is_const)
-                        new_node = create_oper(STATEMENT, node, create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
-                                                          nullptr, nullptr)), create_num(is_number(iterator + 1), nullptr, nullptr)));
+                        new_node->Left = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
+                                                                nullptr, nullptr)), create_num(is_number(iterator + 1), nullptr, nullptr)));
                     else
-                        new_node = create_oper(STATEMENT, node, create_oper(ASSIGN, create_ident(mas_ident, nullptr, create_num((double)mas_index, 
-                                                          nullptr, nullptr)), create_num(is_number(iterator + 1), nullptr, nullptr)));
-                    node = new_node;
+                        new_node->Left = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, nullptr, create_num((double)mas_index, 
+                                                                nullptr, nullptr)), create_num(is_number(iterator + 1), nullptr, nullptr)));
+                    new_node = new_node->Left;
 
                     iterator+=2;
                     mas_index++;
                 }
 
                 if(mas_index != mas_size)
-                    is_error("same number elements as massive size");
+                    return print_error("same number elements as massive size");
 
             }
             if(!is_keyword(iterator, KEY_END))
-                is_error("}");
+                return print_error("}");
 
             iterator++;
         }
@@ -358,33 +359,33 @@ static Node* GetAssign()
 
             Node* new_node = nullptr;
             if(is_const)
-                new_node = create_oper(ASSIGN, create_ident(is_ident(iterator - 2), create_oper(CONST, nullptr, nullptr), GetExpression()), nullptr);
+                new_node = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(is_ident(iterator - 2), create_oper(CONST, nullptr, nullptr), GetExpression()), nullptr));
             else
-                new_node = create_oper(ASSIGN, create_ident(is_ident(iterator - 2), nullptr, GetExpression()), nullptr);
+                new_node = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(is_ident(iterator - 2), nullptr, GetExpression()), nullptr));
 
-            ass(new_node->Left->Right);
+            ass(new_node->Right->Left->Right);
 
             if(!is_keyword(iterator, KEY_QCLOSE) || !is_keyword(iterator + 1, KEY_ASSIGN))
-                is_error("] =");
+                return print_error("] =");
 
             iterator+=2;
 
-            new_node->Right = GetExpression();
-            ass(new_node->Right);
+            new_node->Right->Right = GetExpression();
+            ass(new_node->Right->Right);
             node = new_node;
         }
         else
         {
-            is_error("variable or massive assignment");
+            return print_error("variable or massive assignment");
         }
     }
     else
     {
-        is_error("identificator");
+        return print_error("identificator");
     }
 
     if(!is_keyword(iterator, KEY_SEMICOL))
-        is_error(";");
+        return print_error(";");
 
     iterator++;
     return node;
@@ -412,26 +413,26 @@ static Node* GetFunction()
             ass(param_node->Right);
             new_node->Left->Right = param_node;
 
-            while(is_keyword(iterator, KEY_COMMA) && is_ident(iterator + 1) && !is_keyword(iterator + 1, KEY_STOP))
+            while(is_keyword(iterator, KEY_COMMA) && !is_keyword(iterator, KEY_STOP))
             {
+                iterator++;
+                
                 param_node = create_oper(PARAM, nullptr, GetExpression());
                 ass(param_node->Right);
                 param_node->Left = new_node->Left->Right;
                 new_node->Left->Right = param_node;
-
-                iterator+=2;
             }
             if(is_keyword(iterator, KEY_CLOSE))
                 iterator++;
             else
-                is_error(")");
+                return print_error(")");
         }
 
         node = new_node;
     }
     else
     {
-        is_error("function (...)");
+        return print_error("function (...)");
     }
     return node;
 }
@@ -456,7 +457,7 @@ static Node* GetBlock()
             node = new_node;
         }
         if(!is_keyword(iterator, KEY_END))
-            is_error("}");
+            return print_error("}");
 
         iterator++;
     }
@@ -478,10 +479,10 @@ static Node* GetOperation()
 
         Node* new_node  = create_oper(RET, nullptr, GetExpression());
         if(!new_node->Right)
-            is_error("expression");
+            return print_error("expression");
 
         if(!is_keyword(iterator, KEY_SEMICOL))
-            is_error(";");
+            return print_error(";");
 
         iterator++;
 
@@ -495,7 +496,7 @@ static Node* GetOperation()
         ass(new_node->Left);
 
         if(!is_keyword(iterator, KEY_CLOSE))
-            is_error(")");
+            return print_error(")");
 
         iterator++;
 
@@ -519,7 +520,7 @@ static Node* GetOperation()
         ass(new_node->Left);
 
         if(!is_keyword(iterator, KEY_CLOSE))
-            is_error(")");
+            return print_error(")");
 
         iterator++;
 
@@ -537,7 +538,7 @@ static Node* GetOperation()
 
         if(!is_keyword(iterator, KEY_CLOSE) || !is_keyword(iterator + 1, KEY_SEMICOL))
         {
-            is_error(");");
+            return print_error(");");
         }
 
         iterator+=2;
@@ -552,7 +553,7 @@ static Node* GetOperation()
         ass(new_node->Left);
         
         if(!is_keyword(iterator, KEY_CLOSE) || !is_keyword(iterator + 1, KEY_SEMICOL))
-            is_error("close bracket );");
+            return print_error("close bracket );");
 
         iterator+=2;
 
@@ -564,18 +565,18 @@ static Node* GetOperation()
         ass(node->Right);
 
         if(!is_keyword(iterator, KEY_SEMICOL))
-            is_error(";");
+            return print_error(";"); 
 
         iterator++;
     }
-    else if(is_ident(iterator) && (is_keyword(iterator + 1, KEY_ASSIGN) || is_keyword(iterator + 1, KEY_QOPEN)))
+    else if( (is_ident(iterator) && (is_keyword(iterator + 1, KEY_ASSIGN) || is_keyword(iterator + 1, KEY_QOPEN))) || is_keyword(iterator, KEY_CONST) )
     {
-        node = create_oper(STATEMENT, nullptr, GetAssign());
-        ass(node->Right);
+        node = GetAssign();
+        ass(node);
     }
     else
     {
-        is_error("operation");
+        return print_error("operation");
     }
     return node;
 }
@@ -736,7 +737,7 @@ static Node* GetU()
         ass(node);
 
         if(!is_keyword(iterator, KEY_CLOSE))
-            is_error(")");
+            return print_error(")");
 
         iterator++;
     }
@@ -748,7 +749,7 @@ static Node* GetU()
         ass(node->Right);
 
         if(!is_keyword(iterator, KEY_CLOSE))
-            is_error(")");
+            return print_error(")");
 
         iterator++;
     }
@@ -760,7 +761,19 @@ static Node* GetU()
         ass(node);
 
         if(!is_keyword(iterator, KEY_CLOSE))
-            is_error(")");
+            return print_error(")");
+
+        iterator++;
+    }
+    else if(is_ident(iterator) && is_keyword(iterator + 1, KEY_QOPEN))
+    {
+        iterator+=2;
+
+        node = create_ident(is_ident(iterator - 2), nullptr, GetExpression());
+        ass(node);
+
+        if(!is_keyword(iterator, KEY_QCLOSE))
+            return print_error("]");
 
         iterator++;
     }
@@ -780,7 +793,7 @@ static Node* GetU()
     }
     else
     {
-        is_error("unary expression");
+        return print_error("unary expression");
     }
     
     return node;
@@ -795,21 +808,10 @@ Tree* create_tree(array* tokens)
     Tree* p_tree = nullptr;
 
     tree_ctor(&p_tree);
-    StackCtor(&garbage_stk);
-
     Node* temp_node = GetGrammar();
 
     if(!temp_node)
     {
-        StackDump(&garbage_stk);
-        while(garbage_stk.size)
-        {
-            void* ptr = nullptr;
-            StackPop(&garbage_stk, &ptr);
-            free(ptr);
-        }
-
-        StackDtor(&garbage_stk);
         tree_dtor(p_tree);
         return nullptr;
     }
@@ -817,7 +819,6 @@ Tree* create_tree(array* tokens)
     p_tree->root = temp_node;
     p_tree->size = count_tree_size(temp_node);
 
-    StackDtor(&garbage_stk);
     tree_dump(p_tree);
     tree_write(p_tree, "tree");
     return p_tree;
