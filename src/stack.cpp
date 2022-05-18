@@ -172,16 +172,16 @@ static void check_stack(stack* const p_stack, const char* const stack_name, Func
 
     switch (current_cmd)
     {
-        case ctor: strcpy(function, "stack_ctor");   break;
-        case dtor: strcpy(function, "stack_dtor");   break;
-        case push: strcpy(function, "stack_push");   break;
-        case  pop: strcpy(function, "stack_pop" );   break;
-        case dump: strcpy(function, "stack_dump");   break;
+        case ctor_: strcpy(function, "stack_ctor");   break;
+        case dtor_: strcpy(function, "stack_dtor");   break;
+        case push_: strcpy(function, "stack_push");   break;
+        case  pop_: strcpy(function, "stack_pop" );   break;
+        case dump_: strcpy(function, "stack_dump");   break;
     }                               
     fprintf(LOGFILE, "|%-12s|%-12s|", stack_name, function);                            
-    if(current_cmd == push && ( (error & INVALID_DATA) == 0))                           
+    if(current_cmd == push_ && ( (error & INVALID_DATA) == 0))                           
         fprintf(LOGFILE, "%-14" SPECIFICATOR "|", element);                             
-    else if(current_cmd == pop && ( (error & INVALID_EMPTY_STACK) == 0))                
+    else if(current_cmd == pop_ && ( (error & INVALID_EMPTY_STACK) == 0))                
         fprintf(LOGFILE, "%-14" SPECIFICATOR "|", *p_element);                          
     else                                                                                
         fprintf(LOGFILE, " -            |");                                              
@@ -244,7 +244,7 @@ void stack_ctor(stack *const p_stack, const char *const stack_name)
        p_stack->data     != nullptr) 
     {
         error = error | INVALID_STACK_REINITIALIZIED;
-        check_stack(p_stack, stack_name, ctor, error, nullptr, 0);
+        check_stack(p_stack, stack_name, ctor_, error, nullptr, 0);
 
         #ifdef StackHashProtect
         p_stack->hash = ResultHash(p_stack);
@@ -283,7 +283,7 @@ void stack_ctor(stack *const p_stack, const char *const stack_name)
     #endif
 
     error = verify_stack(p_stack);
-    check_stack(p_stack, stack_name, ctor, error, nullptr, 0);
+    check_stack(p_stack, stack_name, ctor_, error, nullptr, 0);
 } 
 
 
@@ -318,7 +318,7 @@ void stack_dtor(stack *const p_stack, const char *const stack_name)
     #endif   
 
 final_check:
-    check_stack(p_stack, stack_name, dtor, error, nullptr, 0);
+    check_stack(p_stack, stack_name, dtor_, error, nullptr, 0);
 }
 
 
@@ -330,7 +330,7 @@ void stack_push(stack *const p_stack, const char *const stack_name, const item_t
     uint64_t error = verify_stack(p_stack);
     if(error)
     {
-        check_stack(p_stack, stack_name, push, error, nullptr, element);
+        check_stack(p_stack, stack_name, push_, error, nullptr, element);
 
         #ifdef StackHashProtect
         p_stack->hash = ResultHash(p_stack);
@@ -356,7 +356,7 @@ void stack_push(stack *const p_stack, const char *const stack_name, const item_t
     #endif
 
     error = verify_stack(p_stack);
-    check_stack(p_stack, stack_name, push, error, nullptr, element);
+    check_stack(p_stack, stack_name, push_, error, nullptr, element);
 }
 
 
@@ -371,7 +371,7 @@ void stack_pop(stack *const p_stack, const char *const stack_name, item_t *const
     {
         if(p_stack->size == 0)
             error = error | INVALID_EMPTY_STACK;
-        check_stack(p_stack, stack_name, pop, error, p_element, 0);
+        check_stack(p_stack, stack_name, pop_, error, p_element, 0);
 
         #ifdef StackHashProtect
         p_stack->hash = ResultHash(p_stack);
@@ -397,7 +397,7 @@ void stack_pop(stack *const p_stack, const char *const stack_name, item_t *const
     #endif
 
     error = verify_stack(p_stack);
-    check_stack(p_stack, stack_name, pop, error, p_element, 0);
+    check_stack(p_stack, stack_name, pop_, error, p_element, 0);
 }
 
 

@@ -22,7 +22,7 @@ int array_dtor(array* const p_array, bool free_data)
 
     if(free_data)
         for(size_t i = 0; i < p_array->size; i++)
-            free(*((char** )p_array->data + i * p_array->item_size));
+            free(*(void**)((char* )p_array->data + i * p_array->item_size));
 
     free(p_array->data);
     p_array->size      = 0;
@@ -77,7 +77,7 @@ int array_realloc(array* const p_array, size_t new_capacity)
     if(!new_data)
         return 0;
 
-    memcpy(new_data, p_array->data, new_capacity * p_array->item_size);
+    memcpy(new_data, p_array->data, p_array->capa * p_array->item_size);
 
     p_array->data = new_data;
     p_array->capa = new_capacity;

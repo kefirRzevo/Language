@@ -12,11 +12,7 @@
 #include "../stack.h"
 #include "lexer.h"
 
-
-const double EPSILON      = 0.001;
-const size_t MAX_MAS_SIZE = 100;
-
-
 Tree* create_tree(array* tokens);
+
 
 #endif

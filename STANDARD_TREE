@@ -1,5 +1,4 @@
     //universal
-        OPER(STATEMENT, 0,  "statement")
         OPER(ASSIGN,    1,  "=")
         OPER(NOT,       2,  "!")
     //arithmetic
@@ -39,3 +38,5 @@
         OPER(WHILE,     27, "while")
     //consts
         OPER(CONST,     28, "const")
+        OPER(STATEMENT, 29, "statement")
+        OPER(INT,       30, "int")

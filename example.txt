@@ -1,37 +1,20 @@
 
-int func(x)
+define fucktorial(x)
 {
-    a = 3;
-    x = x + a;
-    print(x);
-    return x;
+    if(x == 1)
+        return 1;
+    return x * fucktorial(x-1);
 }
 
-y = 12;
-x[10] = {2};
-const x[3] = {20, 25, 30};
-x[3] = 2;
-
-int main()
+define main()
 {
-    x = 12;
-    mas[3] = {0};
-
-    if(x > 0)
+    x[10] = {4};
+    i = 0;
+    while(i < 10)
     {
-        func(x);
-        x=2*x^2;
-    }
-    else
-    {
-        return y^func(x);
+        print(x[i]);
+        i = i + 1;
     }
 
-    i = 2;
-    while(i >= 0)
-        mas[i] = i;
-        
-
-    print(x);
-    return 0;
+    print(fucktorial(5));
 }

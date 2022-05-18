@@ -35,37 +35,40 @@ TARGET = app
 make: 
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/main.o 				-c main.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/array.o 				-c src/array.cpp
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/symtable.o 		    -c src/symtable.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/stack.o 				-c src/stack.cpp
-		$(CXX) -g -pipe $(CXXFLAGS) -o obj/tree_dump.o 			-c src/tree_dump.cpp
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/tree_dump.o 			-c src/tree_dump.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/tree.o 				-c src/tree.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/lexer.o 	    		-c frontend/lexer.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/recursive_descent.o 	-c frontend/recursive_descent.cpp
-	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/stack.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/compiler.o 			-c backend/compiler.cpp
+	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/symtable.o obj/stack.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o obj/compiler.o
 
 front:
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/lexer.o 				-c frontend/lexer.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/recursive_descent.o 	-c frontend/recursive_descent.cpp
+	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/symtable.o obj/stack.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o obj/compiler.o
 
-sources: main.cpp src/array.cpp src/stack.cpp src/tree_dump.cpp src/tree.cpp
+back:
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/compiler.o 			-c backend/compiler.cpp
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/symtable.o 		    -c src/symtable.cpp
+	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/symtable.o obj/stack.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o obj/compiler.o
+	./$(TARGET)
+
+sources: main.cpp src/array.cpp src/symtable.cpp src/stack.cpp src/tree_dump.cpp src/tree.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/main.o 				-c main.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/array.o 				-c src/array.cpp
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/symtable.o 			-c src/symtable.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/stack.o 				-c src/stack.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/tree_dump.o 			-c src/tree_dump.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/tree.o 				-c src/tree.cpp
-
-main:
-	$(CXX) -g -pipe $(CXXFLAGS) -o obj/main.o 				-c main.cpp
-
-x:
-	$(CXX) -g -pipe $(CXXFLAGS) -o obj/recursive_descent.o 	-c frontend/recursive_descent.cpp
-	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/stack.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o
-	./app
+	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/symtable.o obj/stack.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o obj/compiler.o
 
 $(TARGET):	obj/main.o obj/array.o obj/stack.o obj/tree.o obj/lexer.o obj/recursive_descent.o
 	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/stack.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o
 
 clean:
-	rm -rf obj/*.o
+	rm -rf obj/*.o $(TARGET)
 
 kill:
 	rm -rf logfiles/*

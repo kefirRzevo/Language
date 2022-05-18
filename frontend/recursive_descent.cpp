@@ -35,7 +35,7 @@ static Node* create_num(double    num,   Node* lnode, Node* rnode);
 
 static Node* print_error(const char* waited)
 {
-    fprintf(stderr, "%d\tMistake at line %zu: waited \"%s\", in fact ", __LINE__, p_tokens[iterator].line, waited);  
+    fprintf(stderr, "Mistake at line %zu: waited \"%s\", in fact ", p_tokens[iterator].line, waited);  
     switch(p_tokens[iterator].type)                                                                             
     {                                                                                                           
         case KEYWORD:   
@@ -175,11 +175,18 @@ static Node* GetGrammar()
 
     while(!is_keyword(iterator, KEY_STOP) && (is_ident(iterator) || is_keyword(iterator, KEY_CONST)))
     {
-        Node* new_node = create_oper(STATEMENT, node, GetAssign());
-        ass(new_node->Right);
-        node = new_node;
+        Node* new_node1 = GetAssign();
+        ass(new_node1);
+    
+        Node* new_node2 = new_node1;
+        while(new_node1->Left)
+        {
+            new_node1 = new_node1->Left;
+        }
+        new_node1->Left = node;
+        node = new_node2;
     }
-    while(!is_keyword(iterator, KEY_STOP) && is_keyword(iterator, KEY_INT))
+    while(!is_keyword(iterator, KEY_STOP) && is_keyword(iterator, KEY_DEF))
     {
         iterator++;
 
@@ -445,17 +452,30 @@ static Node* GetBlock()
     if(is_keyword(iterator, KEY_BEGIN))
     {
         iterator++;
-
-        node =  GetOperation();
-        ass(node);
-
-        while(!is_keyword(iterator, KEY_END) && !is_keyword(iterator, KEY_STOP))
+        
+        do
         {
             Node* new_node  = GetOperation();
             ass(new_node);
-            new_node->Left = node;
-            node = new_node;
+
+            if(is_keyword(iterator - 1, KEY_SEMICOL) && is_keyword(iterator - 2, KEY_END))
+            {
+                Node* new_node1 = new_node;
+                while(new_node1->Left)
+                {
+                    new_node1 = new_node1->Left;
+                }
+                new_node1->Left = node;
+                node = new_node;
+            }
+            else
+            {
+                new_node->Left = node;
+                node = new_node;
+            }
         }
+        while(!is_keyword(iterator, KEY_END) && !is_keyword(iterator, KEY_STOP));
+
         if(!is_keyword(iterator, KEY_END))
             return print_error("}");
 
@@ -540,20 +560,6 @@ static Node* GetOperation()
         {
             return print_error(");");
         }
-
-        iterator+=2;
-
-        node = create_oper(STATEMENT, nullptr, new_node);
-    }
-    else if(is_keyword(iterator, KEY_IN) && is_keyword(iterator + 1, KEY_OPEN))
-    {
-        iterator+=2;
-
-        Node* new_node = create_oper(SCAN, GetExpression(), nullptr);
-        ass(new_node->Left);
-        
-        if(!is_keyword(iterator, KEY_CLOSE) || !is_keyword(iterator + 1, KEY_SEMICOL))
-            return print_error("close bracket );");
 
         iterator+=2;
 
@@ -759,6 +765,29 @@ static Node* GetU()
 
         node = create_oper(COS, nullptr, GetExpression());
         ass(node);
+
+        if(!is_keyword(iterator, KEY_CLOSE))
+            return print_error(")");
+
+        iterator++;
+    }
+    else if(is_keyword(iterator, KEY_INT) && is_keyword(iterator + 1, KEY_OPEN))
+    {
+        iterator+=2;
+
+        node = create_oper(INT, nullptr, GetExpression());
+        ass(node);
+
+        if(!is_keyword(iterator, KEY_CLOSE))
+            return print_error(")");
+
+        iterator++;
+    }
+    else if(is_keyword(iterator, KEY_IN) && is_keyword(iterator + 1, KEY_OPEN))
+    {
+        iterator+=2;
+
+        node = create_oper(SCAN, nullptr, nullptr);
 
         if(!is_keyword(iterator, KEY_CLOSE))
             return print_error(")");

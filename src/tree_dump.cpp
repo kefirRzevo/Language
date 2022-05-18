@@ -186,7 +186,7 @@ static void write_nodes(Node* node, FILE* const file)
 {
     assert(file);
     
-    fprintf(file, "{");
+    fprintf(file, "(");
 
     if(node->Left)
         write_nodes(node->Left, file);
@@ -203,10 +203,10 @@ static void write_nodes(Node* node, FILE* const file)
                     break;
     }
 
-    fprintf(file, "}");
-
     if(node->Right)
         write_nodes(node->Right, file);
+    
+    fprintf(file, ")");
 }
 
 Tree* tree_write(Tree* p_tree, const char* filepath)

@@ -1,355 +1,2101 @@
 STACK LOGFILE
-Time: 23:33:12
-Day:  Friday
+Time: 22:30:50
+Day:  Wednesday
 =======================================================================================
 |Name_stack: |Command:    |Argument:     |Stack size: |Status?                         
 |            |            |              |            |                                
 =======================================================================================
 |            |            |              |            |                                
-|&garbage_stk|stack_ctor  | -            |0           |OK
+|&p_cpu->Stack|stack_ctor  | -            |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c000|1           |OK
+|&p_cpu->CallStack|stack_ctor  | -            |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c020|2           |OK
+|&p_cpu->Stack|stack_push  |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c040|3           |OK
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c060|4           |OK
+|&p_cpu->CallStack|stack_push  |3             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c080|5           |OK
+|=====================================================|
+|            |                                        |
+|&p_cpu->CallStack|              STACK DUMP                |
+|            |                                        |
+|=====================================================|
+| Stack information:                                  |
+| Address:            0x7ff7b53a8610                  |
+| Size:               1                               |
+| Capacity:           10                              |
+| Data:               0x600001c880a0                  |
+|                                                     |
+| Elements:                                           |
+| *      1:         3                                 |
+|        2:         0                                 |
+|        3:         0                                 |
+|        4:         0                                 |
+|        5:         0                                 |
+|        6:         0                                 |
+|        7:         0                                 |
+|        8:         0                                 |
+|        9:         0                                 |
+|       10:         0                                 |
+|=====================================================|
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c0a0|6           |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c0c0|7           |OK
+|&p_cpu->Stack|stack_push  |9             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c0e0|8           |OK
+|&p_cpu->Stack|stack_pop   |9             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c100|9           |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c120|10          |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c140|11          |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c160|12          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c180|13          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c1a0|14          |OK
+|&p_cpu->Stack|stack_push  |9             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c1c0|15          |OK
+|&p_cpu->Stack|stack_pop   |9             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c1e0|16          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c200|17          |OK
+|&p_cpu->Stack|stack_push  |9             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c220|18          |OK
+|&p_cpu->Stack|stack_pop   |9             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c240|19          |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c260|20          |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c280|21          |OK
+|&p_cpu->Stack|stack_push  |8             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c2a0|22          |OK
+|&p_cpu->Stack|stack_pop   |8             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c2c0|23          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c2e0|24          |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c300|25          |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c320|26          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c340|27          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c360|28          |OK
+|&p_cpu->Stack|stack_push  |8             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c380|29          |OK
+|&p_cpu->Stack|stack_pop   |8             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c3a0|30          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c3c0|31          |OK
+|&p_cpu->Stack|stack_push  |8             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c3e0|32          |OK
+|&p_cpu->Stack|stack_pop   |8             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c400|33          |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c420|34          |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c440|35          |OK
+|&p_cpu->Stack|stack_push  |7             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c460|36          |OK
+|&p_cpu->Stack|stack_pop   |7             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c480|37          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c4a0|38          |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c4c0|39          |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c4e0|40          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c500|41          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c520|42          |OK
+|&p_cpu->Stack|stack_push  |7             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c540|43          |OK
+|&p_cpu->Stack|stack_pop   |7             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c560|44          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c580|45          |OK
+|&p_cpu->Stack|stack_push  |7             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c5a0|46          |OK
+|&p_cpu->Stack|stack_pop   |7             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c5c0|47          |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c5e0|48          |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c600|49          |OK
+|&p_cpu->Stack|stack_push  |6             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c620|50          |OK
+|&p_cpu->Stack|stack_pop   |6             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c640|51          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c660|52          |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c680|53          |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c6a0|54          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c6c0|55          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c6e0|56          |OK
+|&p_cpu->Stack|stack_push  |6             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c700|57          |OK
+|&p_cpu->Stack|stack_pop   |6             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c720|58          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c740|59          |OK
+|&p_cpu->Stack|stack_push  |6             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c760|60          |OK
+|&p_cpu->Stack|stack_pop   |6             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c780|61          |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c7a0|62          |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c7c0|63          |OK
+|&p_cpu->Stack|stack_push  |5             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c7e0|64          |OK
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c800|65          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c820|66          |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c840|67          |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c860|68          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c880|69          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c8a0|70          |OK
+|&p_cpu->Stack|stack_push  |5             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c8c0|71          |OK
+|&p_cpu->Stack|stack_pop   |5             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c8e0|72          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c900|73          |OK
+|&p_cpu->Stack|stack_push  |5             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c920|74          |OK
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c940|75          |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c960|76          |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c980|77          |OK
+|&p_cpu->Stack|stack_push  |4             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c9a0|78          |OK
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c9c0|79          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3c9e0|80          |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ca00|81          |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ca20|82          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ca40|83          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ca60|84          |OK
+|&p_cpu->Stack|stack_push  |4             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ca80|85          |OK
+|&p_cpu->Stack|stack_pop   |4             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3caa0|86          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cac0|87          |OK
+|&p_cpu->Stack|stack_push  |4             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cae0|88          |OK
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cb00|89          |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cb20|90          |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cb40|91          |OK
+|&p_cpu->Stack|stack_push  |3             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cb60|92          |OK
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cb80|93          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cba0|94          |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cbc0|95          |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cbe0|96          |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cc00|97          |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cc20|98          |OK
+|&p_cpu->Stack|stack_push  |3             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cc40|99          |OK
+|&p_cpu->Stack|stack_pop   |3             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cc60|100         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cc80|101         |OK
+|&p_cpu->Stack|stack_push  |3             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cca0|102         |OK
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ccc0|103         |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cce0|104         |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cd00|105         |OK
+|&p_cpu->Stack|stack_push  |2             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cd20|106         |OK
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cd40|107         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cd60|108         |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cd80|109         |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cda0|110         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cdc0|111         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cde0|112         |OK
+|&p_cpu->Stack|stack_push  |2             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ce00|113         |OK
+|&p_cpu->Stack|stack_pop   |2             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ce20|114         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ce40|115         |OK
+|&p_cpu->Stack|stack_push  |2             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ce60|116         |OK
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3ce80|117         |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cea0|118         |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cec0|119         |OK
+|&p_cpu->Stack|stack_push  |1             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cee0|120         |OK
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cf00|121         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cf20|122         |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cf40|123         |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cf60|124         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cf80|125         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cfa0|126         |OK
+|&p_cpu->Stack|stack_push  |1             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cfc0|127         |OK
+|&p_cpu->Stack|stack_pop   |1             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3cfe0|128         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d000|129         |OK
+|&p_cpu->Stack|stack_push  |1             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d020|130         |OK
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d040|131         |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d060|132         |OK
+|&p_cpu->Stack|stack_push  |4             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d080|133         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d0a0|134         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d0c0|135         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d0e0|136         |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d100|137         |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d120|138         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d140|139         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d160|140         |OK
+|&p_cpu->Stack|stack_push  |0             |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d180|141         |OK
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d1a0|142         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d1c0|143         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d1e0|144         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d200|145         |OK
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d220|146         |OK
+|&p_cpu->Stack|stack_push  |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d240|147         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d260|148         |OK
+|&p_cpu->Stack|stack_push  |10            |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d280|149         |OK
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d2a0|150         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d2c0|151         |OK
+|&p_cpu->Stack|stack_push  |10            |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d2e0|152         |OK
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d300|153         |OK
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d320|154         |OK
+|&p_cpu->Stack|stack_push  |10            |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d340|155         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d360|156         |OK
+|&p_cpu->Stack|stack_push  |10            |3           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d380|157         |OK
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d3a0|158         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d3c0|159         |OK
+|&p_cpu->Stack|stack_push  |10            |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d3e0|160         |OK
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d400|161         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d420|162         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d440|163         |OK
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d460|164         |OK
+|&p_cpu->Stack|stack_push  |1             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d480|165         |OK
+|&p_cpu->Stack|stack_push  |0             |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d4a0|166         |OK
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d4c0|167         |OK
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d4e0|168         |OK
+|&p_cpu->Stack|stack_push  |0             |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d500|169         |OK
+|&p_cpu->Stack|stack_push  |10            |2           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d520|170         |OK
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
 |            |            |              |            |
-|&garbage_stk|stack_push  |0x600002a3d540|171         |OK
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
 |            |            |              |            |
-|&garbage_stk|stack_dtor  | -            |0           |OK
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |7             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |7             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |7             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |7             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |7             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |7             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |7             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |7             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |7             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |7             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |7             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |7             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |8             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |8             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |8             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |8             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |8             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |8             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |8             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |8             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |8             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |8             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |8             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |8             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |9             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |9             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |9             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |9             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |9             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |9             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |9             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |9             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |9             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |9             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |9             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |9             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |10            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |10            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_push  |196           |2           |OK
+|            |            |              |            |
+|=====================================================|
+|            |                                        |
+|&p_cpu->CallStack|              STACK DUMP                |
+|            |                                        |
+|=====================================================|
+| Stack information:                                  |
+| Address:            0x7ff7b53a8610                  |
+| Size:               2                               |
+| Capacity:           10                              |
+| Data:               0x600001c880a0                  |
+|                                                     |
+| Elements:                                           |
+| *      1:         3                                 |
+| *      2:         196                               |
+|        3:         0                                 |
+|        4:         0                                 |
+|        5:         0                                 |
+|        6:         0                                 |
+|        7:         0                                 |
+|        8:         0                                 |
+|        9:         0                                 |
+|       10:         0                                 |
+|=====================================================|
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_push  |34            |3           |OK
+|            |            |              |            |
+|=====================================================|
+|            |                                        |
+|&p_cpu->CallStack|              STACK DUMP                |
+|            |                                        |
+|=====================================================|
+| Stack information:                                  |
+| Address:            0x7ff7b53a8610                  |
+| Size:               3                               |
+| Capacity:           10                              |
+| Data:               0x600001c880a0                  |
+|                                                     |
+| Elements:                                           |
+| *      1:         3                                 |
+| *      2:         196                               |
+| *      3:         34                                |
+|        4:         0                                 |
+|        5:         0                                 |
+|        6:         0                                 |
+|        7:         0                                 |
+|        8:         0                                 |
+|        9:         0                                 |
+|       10:         0                                 |
+|=====================================================|
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_push  |34            |4           |OK
+|            |            |              |            |
+|=====================================================|
+|            |                                        |
+|&p_cpu->CallStack|              STACK DUMP                |
+|            |                                        |
+|=====================================================|
+| Stack information:                                  |
+| Address:            0x7ff7b53a8610                  |
+| Size:               4                               |
+| Capacity:           10                              |
+| Data:               0x600001c880a0                  |
+|                                                     |
+| Elements:                                           |
+| *      1:         3                                 |
+| *      2:         196                               |
+| *      3:         34                                |
+| *      4:         34                                |
+|        5:         0                                 |
+|        6:         0                                 |
+|        7:         0                                 |
+|        8:         0                                 |
+|        9:         0                                 |
+|       10:         0                                 |
+|=====================================================|
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_push  |34            |5           |OK
+|            |            |              |            |
+|=====================================================|
+|            |                                        |
+|&p_cpu->CallStack|              STACK DUMP                |
+|            |                                        |
+|=====================================================|
+| Stack information:                                  |
+| Address:            0x7ff7b53a8610                  |
+| Size:               5                               |
+| Capacity:           10                              |
+| Data:               0x600001c880a0                  |
+|                                                     |
+| Elements:                                           |
+| *      1:         3                                 |
+| *      2:         196                               |
+| *      3:         34                                |
+| *      4:         34                                |
+| *      5:         34                                |
+|        6:         0                                 |
+|        7:         0                                 |
+|        8:         0                                 |
+|        9:         0                                 |
+|       10:         0                                 |
+|=====================================================|
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |15            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |15            |1           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_push  |34            |6           |OK
+|            |            |              |            |
+|=====================================================|
+|            |                                        |
+|&p_cpu->CallStack|              STACK DUMP                |
+|            |                                        |
+|=====================================================|
+| Stack information:                                  |
+| Address:            0x7ff7b53a8610                  |
+| Size:               6                               |
+| Capacity:           10                              |
+| Data:               0x600001c880a0                  |
+|                                                     |
+| Elements:                                           |
+| *      1:         3                                 |
+| *      2:         196                               |
+| *      3:         34                                |
+| *      4:         34                                |
+| *      5:         34                                |
+| *      6:         34                                |
+|        7:         0                                 |
+|        8:         0                                 |
+|        9:         0                                 |
+|       10:         0                                 |
+|=====================================================|
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |15            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |15            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |15            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |15            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |15            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |15            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |15            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |15            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_pop   |34            |5           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |15            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |15            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |0           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_pop   |34            |4           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |2             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |14            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |14            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |3             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |3             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |2             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |0           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_pop   |34            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |6             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |13            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |13            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |4             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |4             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |6             |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |24            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |24            |0           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_pop   |34            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |24            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |1             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |12            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |12            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |1             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |5             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |5             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |24            |0           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |120           |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |120           |0           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_pop   |196           |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |120           |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |11            |3           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |11            |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_push  |0             |2           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |0             |1           |OK
+|            |            |              |            |
+|&p_cpu->Stack|stack_pop   |120           |0           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_pop   |3             |0           |OK
+|            |            |              |            |
+|=====================================================|
+|            |                                        |
+|&p_cpu->Stack|              STACK DUMP                |
+|            |                                        |
+|=====================================================|
+| Stack information:                                  |
+| Address:            0x7ff7b53a85f8                  |
+| Size:               0                               |
+| Capacity:           10                              |
+| Data:               0x600001c88050                  |
+|                                                     |
+| Elements:                                           |
+|        1:         120                               |
+|        2:         0                                 |
+|        3:         11                                |
+|        4:         0                                 |
+|        5:         0                                 |
+|        6:         0                                 |
+|        7:         0                                 |
+|        8:         0                                 |
+|        9:         0                                 |
+|       10:         0                                 |
+|=====================================================|
+|            |            |              |            |
+|&p_cpu->Stack|stack_dtor  | -            |0           |OK
+|            |            |              |            |
+|&p_cpu->CallStack|stack_dtor  | -            |0           |OK
 |            |            |              |            |
 THIS IS THE END!

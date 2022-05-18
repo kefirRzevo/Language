@@ -1,8 +1,7 @@
 
-    Grammar := {
-        ['int' FuncDef | 
-        Assign]
-        }*
+    Grammar := 
+        {Assign}*
+        {'define' FuncDef}*
 
 
     FuncDef  := 
@@ -35,7 +34,6 @@
         'if' '(' Expression ')' Block ['else' Block}] |
         'while' '(' Expression ')' Block |
         'print' '(' Expression ')' ';' | 
-        'scan' '(' Expression ')' ';' |
         Function ';' |              #'(' after ident
         Assign |]
 
@@ -64,6 +62,9 @@
         ['(' Expression ')' |
         'sin' '(' Expression ')' |
         'cos' '(' Expression ')' |
+        'int' '(' Expression ')' |
+        'scan' '('')' |
         number |
+        ident '[' Expression ']' |
         ident |                 #no '(' after
         Function]

@@ -11,8 +11,9 @@ static int make_keyword(array* tokens, int keyword);
 static int make_ident(  array* tokens, array* idents, char* ident, size_t ident_size);
 static int make_number( array* tokens);
 
-static int   is_linkable(int* keyword, size_t* keyword_length);
-static int is_unlinkable(int* keyword, size_t* keyword_length);
+static int    is_linkable(int* keyword, size_t* keyword_length);
+static int  is_unlinkable(int* keyword, size_t* keyword_length);
+static bool is_keyword_before(array* tokens);
 
 
 char*  iterator = nullptr;
@@ -149,6 +150,12 @@ static int make_number(array* tokens)
 }
 
 
+static bool is_keyword_before(array* tokens)
+{
+    return ((*((token *)((char* )tokens->data + (tokens->size - 1) * tokens->item_size))).type == KEYWORD);
+}
+
+
 static int is_linkable(int* _keyword, size_t* keyword_length)
 {
     assert(_keyword);
@@ -257,9 +264,9 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
 
  int    keyword = 0;
  size_t keyword_length = 0;
- size_t   token_length = 0;
+ size_t token_length = 0;
 
-        if(isdigit(*iterator))
+        if(isdigit(*iterator) || is_keyword_before(tokens) && *iterator == '-' && isdigit(*(iterator + 1)))
         {
             make_number(tokens);
             continue;

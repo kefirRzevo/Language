@@ -13,14 +13,14 @@ Tree* tree_ctor(Tree** p_tree)
 }
 
 
-Node* node_delete(Node* tree_node)
+Node* node_delete(Node* p_node)
 {
-    if(tree_node != nullptr)
+    if(p_node != nullptr)
     {
-        node_delete(tree_node->Left );
-        node_delete(tree_node->Right);
+        node_delete(p_node->Left );
+        node_delete(p_node->Right);
 
-        free(tree_node);
+        free(p_node);
     }
     return nullptr;
 }
@@ -126,3 +126,68 @@ void tree_visit(Node* p_node, void(*function)(Node*))
      if(p_node->Right)
          tree_visit(p_node->Right, function);
  }
+
+
+bool is_number(Node* node)
+{
+    if(!node)
+        return false;
+
+    return node->Type == NUM;
+}
+
+bool is_natural(Node* node)
+{
+    if(!node)
+        return false;
+        
+    if(node->Value.number < 1 || fabs(node->Value.number - (int)node->Value.number) > EPSILON)
+        return false;
+    
+    return true;
+}
+
+char* is_ident(Node* node)
+{
+    if(!node)
+        return nullptr;
+
+    if(node->Type == ID)
+        return node->Value.ident;
+    return nullptr;
+}
+
+int is_operator(Node* node, int type)
+{
+    if(!node)
+        return 0;
+
+    if(node->Type == OPER)
+        if(node->Value.oper_type == type)
+            return type;
+    return 0;
+}
+
+
+double get_number(Node* node)
+{
+    assert(node && node->Type == NUM);
+
+    return node->Value.number;
+}
+
+
+const char* get_oper_string(Node* node)
+{
+    assert(node && node->Type == OPER);
+
+    #define OPER(name, keyword, ident)                      \
+                else if (keyword == node->Value.oper_type)  \
+                    return ident;                      
+
+                if (0) {} 
+    #include "../STANDARD_TREE"
+    #undef OPER
+
+    return nullptr;
+}

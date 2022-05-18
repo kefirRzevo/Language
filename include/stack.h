@@ -101,11 +101,11 @@ enum StackError
 
 enum Functions
 {
-    ctor = 1,
-    push = 2,
-    dump = 3,
-    pop  = 4,
-    dtor = 5,
+    ctor_ = 1,
+    push_ = 2,
+    dump_ = 3,
+    pop_  = 4,
+    dtor_ = 5,
 };
 
 

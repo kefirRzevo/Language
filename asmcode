@@ -1,0 +1,107 @@
+push 0
+pop rsp
+call main
+hlt
+fucktorial:
+pop [rsp + 0]
+push 1
+push [rsp + 0]
+equ
+push 0
+jne true_0x6000013941a0
+jmp continue_0x6000013941a0
+true_0x6000013941a0:
+push 1
+pop rax
+ret
+continue_0x6000013941a0:
+push 1
+push [rsp + 0]
+sub
+push rsp
+push 1
+add
+pop rsp
+call fucktorial
+push rax
+push 1
+push rsp
+sub
+pop rsp
+push [rsp + 0]
+mul
+pop rax
+ret
+ret
+main:
+push 4
+push 9
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 8
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 7
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 6
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 5
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 4
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 3
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 2
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 1
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 0
+pop rsi
+pop [rsp + 0 + rsi]
+push 0
+pop [rsp + 10]
+again_0x600001394b40:
+push 10
+push [rsp + 10]
+low
+push 0
+je continue_0x600001394b40
+push [rsp + 10]
+pop rsi
+push [rsp + 0 + rsi]
+out
+push 1
+push [rsp + 10]
+add
+pop [rsp + 10]
+jmp again_0x600001394b40
+continue_0x600001394b40:
+push 5
+push rsp
+push 11
+add
+pop rsp
+call fucktorial
+push rax
+push 11
+push rsp
+sub
+pop rsp
+out
+ret
