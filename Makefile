@@ -48,6 +48,11 @@ front:
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/recursive_descent.o 	-c frontend/recursive_descent.cpp
 	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/symtable.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o obj/compiler.o
 
+lex:
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/lexer.o 				-c frontend/lexer.cpp
+	$(CXX) -g -pipe $(CXXFLAGS) -o obj/main.o 				-c main.cpp
+	$(CXX) -o $(TARGET) obj/main.o obj/array.o obj/symtable.o obj/tree_dump.o obj/tree.o obj/lexer.o obj/recursive_descent.o obj/compiler.o
+
 back:
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/compiler.o 			-c backend/compiler.cpp
 	$(CXX) -g -pipe $(CXXFLAGS) -o obj/symtable.o 		    -c src/symtable.cpp

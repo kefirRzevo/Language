@@ -109,17 +109,17 @@ void dump_init(FILE* fp, const array* const p_array)
     "DUMP LOGFILE\n"
     "Time: %02d:%02d:%02d\n"
     "Day:  %s\n"
-    "|===================================================|\n"
-    "|            |                                      |\n" 
-    "|            |              ARRAY DUMP              |\n"
-    "|            |                                      |\n"
-    "|===================================================|\n"
-    "| Array information:                                |\n"
-    "| Address:            %-30p|\n"
-    "| Size:               %-30zu|\n"
-    "| Capacity:           %-30zu|\n"
-    "| Data:               %-30p|\n"
-    "| Item size:          %-30zu|\n",
+    "|===================================================================================================\n"
+    "|            |                                                                                      \n" 
+    "|            |              ARRAY DUMP                                                              \n"
+    "|            |                                                                                      \n"
+    "|===================================================================================================\n"
+    "| Array information:                                                                                \n"
+    "| Address:            %-78p\n"
+    "| Size:               %-78zu\n"
+    "| Capacity:           %-78zu\n"
+    "| Data:               %-78p\n"
+    "| Item size:          %-78zu\n",
     date->tm_hour, date->tm_min, date->tm_sec, day,
     p_array, p_array->size, p_array->capa, p_array->data, p_array->item_size);       
 }
@@ -135,12 +135,12 @@ int array_dump(const array* const p_array, const char* dump_file_path)
 
     size_t iterator = 0;
     for(iterator = 0; iterator < p_array->size; iterator++)
-        fprintf(fp, "| *%7zu:           %-29" SPECIFICATOR " |\n", iterator + 1, (char* )p_array->data + iterator * p_array->item_size);
+        fprintf(fp, "| *%7zu:           %-29" SPECIFICATOR "\n", iterator + 1, (char* )p_array->data + iterator * p_array->item_size);
       
     for(iterator = p_array->size; iterator < p_array->capa; iterator++)
-        fprintf(fp, "|  %7zu:           %-29" SPECIFICATOR " |\n", iterator + 1, (char* )p_array->data + iterator * p_array->item_size);
+        fprintf(fp, "|  %7zu:           %-29" SPECIFICATOR "\n", iterator + 1, (char* )p_array->data + iterator * p_array->item_size);
 
-    fprintf(fp, "|===================================================|\n");
+    fprintf(fp, "|===================================================================================================\n");
     fclose(fp);
     return 1;
 }

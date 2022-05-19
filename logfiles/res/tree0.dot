@@ -17,170 +17,179 @@
 		compound  = true;
 		newrank   = true;
 
-		Node0x600000bd5440[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5440 -> Node0x600000bd5120
+		Node0x6000003f18e0[label = "statement"shape = diamond, color = red]
+		Node0x6000003f18e0 -> Node0x6000003f14a0
 
-		Node0x600000bd5120[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5120 -> Node0x600000bd51c0
+		Node0x6000003f14a0[label = "statement"shape = diamond, color = red]
+		Node0x6000003f14a0 -> Node0x6000003f11c0
 
-		Node0x600000bd51c0[label = "define"shape = diamond, color = red]
-		Node0x600000bd51c0 -> Node0x600000bd5160
+		Node0x6000003f11c0[label = "define"shape = diamond, color = red]
+		Node0x6000003f11c0 -> Node0x6000003f11a0
 
-		Node0x600000bd5160[label = "function"shape = diamond, color = red]
-		Node0x600000bd5160 -> Node0x600000bd5140
+		Node0x6000003f11a0[label = "function"shape = diamond, color = red]
+		Node0x6000003f11a0 -> Node0x6000003f11e0
 
-		Node0x600000bd5140[label = "factorial"shape = octagon, color = blue]
-		Node0x600000bd5160 -> Node0x600000bd5180
+		Node0x6000003f11e0[label = "fucktorial"shape = octagon, color = blue]
+		Node0x6000003f11a0 -> Node0x6000003f1220
 
-		Node0x600000bd5180[label = "parameter"shape = diamond, color = red]
-		Node0x600000bd5180 -> Node0x600000bd51a0
+		Node0x6000003f1220[label = "parameter"shape = diamond, color = red]
+		Node0x6000003f1220 -> Node0x6000003f1200
 
-		Node0x600000bd51a0[label = "x"shape = octagon, color = blue]
-		Node0x600000bd51c0 -> Node0x600000bd5300
+		Node0x6000003f1200[label = "x"shape = octagon, color = blue]
+		Node0x6000003f11c0 -> Node0x6000003f1480
 
-		Node0x600000bd5300[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5300 -> Node0x600000bd51e0
+		Node0x6000003f1480[label = "statement"shape = diamond, color = red]
+		Node0x6000003f1480 -> Node0x6000003f1340
 
-		Node0x600000bd51e0[label = "statement"shape = diamond, color = red]
-		Node0x600000bd51e0 -> Node0x600000bd5260
+		Node0x6000003f1340[label = "statement"shape = diamond, color = red]
+		Node0x6000003f1340 -> Node0x6000003f12c0
 
-		Node0x600000bd5260[label = "if"shape = diamond, color = red]
-		Node0x600000bd5260 -> Node0x600000bd5220
+		Node0x6000003f12c0[label = "if"shape = diamond, color = red]
+		Node0x6000003f12c0 -> Node0x6000003f1280
 
-		Node0x600000bd5220[label = "<="shape = diamond, color = red]
-		Node0x600000bd5220 -> Node0x600000bd5200
+		Node0x6000003f1280[label = "=="shape = diamond, color = red]
+		Node0x6000003f1280 -> Node0x6000003f1240
 
-		Node0x600000bd5200[label = "x"shape = octagon, color = blue]
-		Node0x600000bd5220 -> Node0x600000bd5240
+		Node0x6000003f1240[label = "x"shape = octagon, color = blue]
+		Node0x6000003f1280 -> Node0x6000003f1260
 
-		Node0x600000bd5240[label = "0"shape = oval,    color = yellow]
-		Node0x600000bd5260 -> Node0x600000bd52e0
+		Node0x6000003f1260[label = "1"shape = oval,    color = yellow]
+		Node0x6000003f12c0 -> Node0x6000003f12a0
 
-		Node0x600000bd52e0[label = "decision"shape = diamond, color = red]
-		Node0x600000bd52e0 -> Node0x600000bd5280
+		Node0x6000003f12a0[label = "decision"shape = diamond, color = red]
+		Node0x6000003f12a0 -> Node0x6000003f1320
 
-		Node0x600000bd5280[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5280 -> Node0x600000bd52a0
+		Node0x6000003f1320[label = "statement"shape = diamond, color = red]
+		Node0x6000003f1320 -> Node0x6000003f1300
 
-		Node0x600000bd52a0[label = "return"shape = diamond, color = red]
-		Node0x600000bd52a0 -> Node0x600000bd52c0
+		Node0x6000003f1300[label = "return"shape = diamond, color = red]
+		Node0x6000003f1300 -> Node0x6000003f12e0
 
-		Node0x600000bd52c0[label = "1"shape = oval,    color = yellow]
-		Node0x600000bd5300 -> Node0x600000bd5320
+		Node0x6000003f12e0[label = "1"shape = oval,    color = yellow]
+		Node0x6000003f1480 -> Node0x6000003f1460
 
-		Node0x600000bd5320[label = "return"shape = diamond, color = red]
-		Node0x600000bd5320 -> Node0x600000bd5360
+		Node0x6000003f1460[label = "return"shape = diamond, color = red]
+		Node0x6000003f1460 -> Node0x6000003f1440
 
-		Node0x600000bd5360[label = "*"shape = diamond, color = red]
-		Node0x600000bd5360 -> Node0x600000bd5340
+		Node0x6000003f1440[label = "*"shape = diamond, color = red]
+		Node0x6000003f1440 -> Node0x6000003f1360
 
-		Node0x600000bd5340[label = "x"shape = octagon, color = blue]
-		Node0x600000bd5360 -> Node0x600000bd53a0
+		Node0x6000003f1360[label = "x"shape = octagon, color = blue]
+		Node0x6000003f1440 -> Node0x6000003f13a0
 
-		Node0x600000bd53a0[label = "call"shape = diamond, color = red]
-		Node0x600000bd53a0 -> Node0x600000bd5380
+		Node0x6000003f13a0[label = "call"shape = diamond, color = red]
+		Node0x6000003f13a0 -> Node0x6000003f1380
 
-		Node0x600000bd5380[label = "factorial"shape = octagon, color = blue]
-		Node0x600000bd53a0 -> Node0x600000bd53c0
+		Node0x6000003f1380[label = "fucktorial"shape = octagon, color = blue]
+		Node0x6000003f13a0 -> Node0x6000003f1420
 
-		Node0x600000bd53c0[label = "parameter"shape = diamond, color = red]
-		Node0x600000bd53c0 -> Node0x600000bd5400
+		Node0x6000003f1420[label = "parameter"shape = diamond, color = red]
+		Node0x6000003f1420 -> Node0x6000003f1400
 
-		Node0x600000bd5400[label = "-"shape = diamond, color = red]
-		Node0x600000bd5400 -> Node0x600000bd53e0
+		Node0x6000003f1400[label = "-"shape = diamond, color = red]
+		Node0x6000003f1400 -> Node0x6000003f13c0
 
-		Node0x600000bd53e0[label = "x"shape = octagon, color = blue]
-		Node0x600000bd5400 -> Node0x600000bd5420
+		Node0x6000003f13c0[label = "x"shape = octagon, color = blue]
+		Node0x6000003f1400 -> Node0x6000003f13e0
 
-		Node0x600000bd5420[label = "1"shape = oval,    color = yellow]
-		Node0x600000bd5440 -> Node0x600000bd54a0
+		Node0x6000003f13e0[label = "1"shape = oval,    color = yellow]
+		Node0x6000003f18e0 -> Node0x6000003f14e0
 
-		Node0x600000bd54a0[label = "define"shape = diamond, color = red]
-		Node0x600000bd54a0 -> Node0x600000bd5480
+		Node0x6000003f14e0[label = "define"shape = diamond, color = red]
+		Node0x6000003f14e0 -> Node0x6000003f14c0
 
-		Node0x600000bd5480[label = "function"shape = diamond, color = red]
-		Node0x600000bd5480 -> Node0x600000bd5460
+		Node0x6000003f14c0[label = "function"shape = diamond, color = red]
+		Node0x6000003f14c0 -> Node0x6000003f1500
 
-		Node0x600000bd5460[label = "main"shape = octagon, color = blue]
-		Node0x600000bd54a0 -> Node0x600000bd57c0
+		Node0x6000003f1500[label = "main"shape = octagon, color = blue]
+		Node0x6000003f14e0 -> Node0x6000003f18c0
 
-		Node0x600000bd57c0[label = "statement"shape = diamond, color = red]
-		Node0x600000bd57c0 -> Node0x600000bd5700
+		Node0x6000003f18c0[label = "statement"shape = diamond, color = red]
+		Node0x6000003f18c0 -> Node0x6000003f1800
 
-		Node0x600000bd5700[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5700 -> Node0x600000bd5600
+		Node0x6000003f1800[label = "statement"shape = diamond, color = red]
+		Node0x6000003f1800 -> Node0x6000003f1620
 
-		Node0x600000bd5600[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5600 -> Node0x600000bd5540
+		Node0x6000003f1620[label = "statement"shape = diamond, color = red]
+		Node0x6000003f1620 -> Node0x6000003f1580
 
-		Node0x600000bd5540[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5540 -> Node0x600000bd54c0
+		Node0x6000003f1580[label = "statement"shape = diamond, color = red]
+		Node0x6000003f1580 -> Node0x6000003f1560
 
-		Node0x600000bd54c0[label = "statement"shape = diamond, color = red]
-		Node0x600000bd54c0 -> Node0x600000bd5500
+		Node0x6000003f1560[label = "="shape = diamond, color = red]
+		Node0x6000003f1560 -> Node0x6000003f1540
 
-		Node0x600000bd5500[label = "="shape = diamond, color = red]
-		Node0x600000bd5500 -> Node0x600000bd54e0
+		Node0x6000003f1540[label = "Слава Украине"shape = octagon, color = blue]
+		Node0x6000003f1540 -> Node0x6000003f1520
 
-		Node0x600000bd54e0[label = "x"shape = octagon, color = blue]
-		Node0x600000bd5500 -> Node0x600000bd5520
+		Node0x6000003f1520[label = "10"shape = oval,    color = yellow]
+		Node0x6000003f1560 -> Node0x6000003f15a0
 
-		Node0x600000bd5520[label = "1e+08"shape = oval,    color = yellow]
-		Node0x600000bd5540 -> Node0x600000bd5560
+		Node0x6000003f15a0[label = "scan"shape = diamond, color = red]
+		Node0x6000003f1620 -> Node0x6000003f1600
 
-		Node0x600000bd5560[label = "print"shape = diamond, color = red]
-		Node0x600000bd5560 -> Node0x600000bd55a0
+		Node0x6000003f1600[label = "="shape = diamond, color = red]
+		Node0x6000003f1600 -> Node0x6000003f15c0
 
-		Node0x600000bd55a0[label = "call"shape = diamond, color = red]
-		Node0x600000bd55a0 -> Node0x600000bd5580
+		Node0x6000003f15c0[label = "i"shape = octagon, color = blue]
+		Node0x6000003f1600 -> Node0x6000003f15e0
 
-		Node0x600000bd5580[label = "factorial"shape = octagon, color = blue]
-		Node0x600000bd55a0 -> Node0x600000bd55c0
+		Node0x6000003f15e0[label = "0"shape = oval,    color = yellow]
+		Node0x6000003f1800 -> Node0x6000003f16a0
 
-		Node0x600000bd55c0[label = "parameter"shape = diamond, color = red]
-		Node0x600000bd55c0 -> Node0x600000bd55e0
+		Node0x6000003f16a0[label = "while"shape = diamond, color = red]
+		Node0x6000003f16a0 -> Node0x6000003f1680
 
-		Node0x600000bd55e0[label = "20"shape = oval,    color = yellow]
-		Node0x600000bd5600 -> Node0x600000bd5640
+		Node0x6000003f1680[label = "<"shape = diamond, color = red]
+		Node0x6000003f1680 -> Node0x6000003f1640
 
-		Node0x600000bd5640[label = "if"shape = diamond, color = red]
-		Node0x600000bd5640 -> Node0x600000bd5620
+		Node0x6000003f1640[label = "i"shape = octagon, color = blue]
+		Node0x6000003f1680 -> Node0x6000003f1660
 
-		Node0x600000bd5620[label = "1"shape = oval,    color = yellow]
-		Node0x600000bd5640 -> Node0x600000bd56e0
+		Node0x6000003f1660[label = "11"shape = oval,    color = yellow]
+		Node0x6000003f16a0 -> Node0x6000003f17e0
 
-		Node0x600000bd56e0[label = "decision"shape = diamond, color = red]
-		Node0x600000bd56e0 -> Node0x600000bd5660
+		Node0x6000003f17e0[label = "statement"shape = diamond, color = red]
+		Node0x6000003f17e0 -> Node0x6000003f1720
 
-		Node0x600000bd5660[label = "statement"shape = diamond, color = red]
-		Node0x600000bd5660 -> Node0x600000bd56a0
+		Node0x6000003f1720[label = "statement"shape = diamond, color = red]
+		Node0x6000003f1720 -> Node0x6000003f1700
 
-		Node0x600000bd56a0[label = "="shape = diamond, color = red]
-		Node0x600000bd56a0 -> Node0x600000bd5680
+		Node0x6000003f1700[label = "print"shape = diamond, color = red]
+		Node0x6000003f1700 -> Node0x6000003f16e0
 
-		Node0x600000bd5680[label = "b"shape = octagon, color = blue]
-		Node0x600000bd56a0 -> Node0x600000bd56c0
+		Node0x6000003f16e0[label = "Слава Украине"shape = octagon, color = blue]
+		Node0x6000003f16e0 -> Node0x6000003f16c0
 
-		Node0x600000bd56c0[label = "10"shape = oval,    color = yellow]
-		Node0x600000bd5700 -> Node0x600000bd5740
+		Node0x6000003f16c0[label = "i"shape = octagon, color = blue]
+		Node0x6000003f17e0 -> Node0x6000003f17c0
 
-		Node0x600000bd5740[label = "="shape = diamond, color = red]
-		Node0x600000bd5740 -> Node0x600000bd5720
+		Node0x6000003f17c0[label = "="shape = diamond, color = red]
+		Node0x6000003f17c0 -> Node0x6000003f1740
 
-		Node0x600000bd5720[label = "x"shape = octagon, color = blue]
-		Node0x600000bd5740 -> Node0x600000bd5780
+		Node0x6000003f1740[label = "i"shape = octagon, color = blue]
+		Node0x6000003f17c0 -> Node0x6000003f17a0
 
-		Node0x600000bd5780[label = "-"shape = diamond, color = red]
-		Node0x600000bd5780 -> Node0x600000bd5760
+		Node0x6000003f17a0[label = "+"shape = diamond, color = red]
+		Node0x6000003f17a0 -> Node0x6000003f1760
 
-		Node0x600000bd5760[label = "4"shape = oval,    color = yellow]
-		Node0x600000bd5780 -> Node0x600000bd57a0
+		Node0x6000003f1760[label = "i"shape = octagon, color = blue]
+		Node0x6000003f17a0 -> Node0x6000003f1780
 
-		Node0x600000bd57a0[label = "2"shape = oval,    color = yellow]
-		Node0x600000bd57c0 -> Node0x600000bd57e0
+		Node0x6000003f1780[label = "1"shape = oval,    color = yellow]
+		Node0x6000003f18c0 -> Node0x6000003f18a0
 
-		Node0x600000bd57e0[label = "return"shape = diamond, color = red]
-		Node0x600000bd57e0 -> Node0x600000bd5800
+		Node0x6000003f18a0[label = "print"shape = diamond, color = red]
+		Node0x6000003f18a0 -> Node0x6000003f1840
 
-		Node0x600000bd5800[label = "1"shape = oval,    color = yellow]
+		Node0x6000003f1840[label = "call"shape = diamond, color = red]
+		Node0x6000003f1840 -> Node0x6000003f1820
+
+		Node0x6000003f1820[label = "fucktorial"shape = octagon, color = blue]
+		Node0x6000003f1840 -> Node0x6000003f1880
+
+		Node0x6000003f1880[label = "parameter"shape = diamond, color = red]
+		Node0x6000003f1880 -> Node0x6000003f1860
+
+		Node0x6000003f1860[label = "scan"shape = diamond, color = red]
 	}

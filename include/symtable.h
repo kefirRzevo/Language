@@ -28,8 +28,8 @@ struct func
     size_t n_params;
 };
 
-#define $$ fprintf(stderr, "LINE: %3d, FILE: %s\n", __LINE__, __FILE__);
-//#define $$ 
+//#define $$ fprintf(stderr, "LINE: %3d, FILE: %s\n", __LINE__, __FILE__);
+#define $$ 
 
 sym_table*  delete_sym_table(sym_table* table);
 sym_table*  create_sym_table(sym_table* table, int init_shift);

@@ -2,19 +2,19 @@ push 0
 pop rsp
 call main
 hlt
-factorial:
+fucktorial:
 pop [rsp + 0]
-push 0
+push 1
 push [rsp + 0]
-ngr
+equ
 push 0
-jne true_0x600000bd5260
-jmp continue_0x600000bd5260
-true_0x600000bd5260:
+jne true_0x6000003f12c0
+jmp continue_0x6000003f12c0
+true_0x6000003f12c0:
 push 1
 pop rax
 ret
-continue_0x600000bd5260:
+continue_0x6000003f12c0:
 push 1
 push [rsp + 0]
 sub
@@ -22,7 +22,7 @@ push rsp
 push 1
 add
 pop rsp
-call factorial
+call fucktorial
 push rax
 push 1
 push rsp
@@ -34,33 +34,38 @@ pop rax
 ret
 ret
 main:
-push 1e+08
-pop [rsp + 0]
-push 20
-push rsp
+in
+push 10
+pop rsi
+pop [rsp + 0 + rsi]
+push 0
+pop [rsp + 11]
+again_0x6000003f16a0:
+push 11
+push [rsp + 11]
+low
+push 0
+je continue_0x6000003f16a0
+push [rsp + 11]
+pop rsi
+push [rsp + 0 + rsi]
+out
 push 1
+push [rsp + 11]
+add
+pop [rsp + 11]
+jmp again_0x6000003f16a0
+continue_0x6000003f16a0:
+in
+push rsp
+push 12
 add
 pop rsp
-call factorial
+call fucktorial
 push rax
-push 1
+push 12
 push rsp
 sub
 pop rsp
 out
-push 1
-push 0
-jne true_0x600000bd5640
-jmp continue_0x600000bd5640
-true_0x600000bd5640:
-push 10
-pop [rsp + 1]
-continue_0x600000bd5640:
-push 2
-push 4
-sub
-pop [rsp + 0]
-push 1
-pop rax
-ret
 ret

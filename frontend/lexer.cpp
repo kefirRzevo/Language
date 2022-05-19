@@ -4,27 +4,21 @@ static const char* keyword_string(int type);
 static size_t create_buf(const char* file_path, char** buf);
 static int    tokens_dump(const array* const tokens, const char* dump_file_path);
 
-static void skip_spaces();
-static void find_ending(size_t* token_length);
-
-static int make_keyword(array* tokens, int keyword);
-static int make_ident(  array* tokens, array* idents, char* ident, size_t ident_size);
-static int make_number( array* tokens);
-
-static int    is_linkable(int* keyword, size_t* keyword_length);
-static int  is_unlinkable(int* keyword, size_t* keyword_length);
+static void skip_spaces(char** position);
 static bool is_keyword_before(array* tokens);
 
-
-char*  iterator = nullptr;
-size_t lines    = 1;
+static bool   is_keyword(char* position, int*   keyword, size_t* key_len);
+static bool   is_number (array* tokens, char* position, double* number, size_t* num_len);
+static bool push_ident  (array* tokens, array* idents, char* position, size_t id_len, size_t line);
+static bool push_keyword(array* tokens, int   keyword, size_t line);
+static bool push_number (array* tokens, double number, size_t line);
 
 
 #define $$$ fprintf(stderr, "|%d|%s|\n", __LINE__, iterator);
-#define $$ fprintf(stderr, "|%d|\n", __LINE__);
+#define $$  fprintf(stderr, "|%d|\n",    __LINE__);
 
-#undef $$
-#undef $$$
+//#undef  $$
+//#undef $$$
 
 
 static size_t create_buf(const char* file_path, char** buf)
@@ -46,64 +40,120 @@ static size_t create_buf(const char* file_path, char** buf)
 }
 
 
-static void skip_spaces()
+static void skip_spaces(char** position, size_t* lines)
 {
-    while(isspace(*iterator) || !strncmp(iterator, "/*", 2))
+    while(isspace(**position) || !strncmp(*position, "/*", 2))
     {
-        while(isspace(*iterator))
+        while(isspace(**position))
         {
-            if(*iterator == '\n')
-                lines++;
+            if(**position == '\n')
+                (*lines)++;
 
-            iterator++;
+            (*position)++;
         }
 
-        if(!strncmp(iterator, "/*", 2))
+        if(!strncmp(*position, "/*", 2))
         {
-            iterator += 2;
+            *position += 2;
 
-            while(strncmp(iterator, "*/", 2) && *iterator != '\0')
+            while(strncmp(*position, "*/", 2) && **position != '\0')
             {
-                if(*iterator == '\n')
-                    lines++;
+                if(**position == '\n')
+                    (*lines)++;
 
-                iterator++;
+                (*position)++;
             }
 
-            if(*iterator != '\0')
-                iterator += 2;
+            if(**position != '\0')
+                *position += 2;
         }
     }
 }
 
 
-static int make_keyword(array* tokens, int keyword)
+static bool is_keyword(char* position, int* keyword, size_t* key_len)          
 {
-    assert(tokens);
+    assert(position);
+    assert(keyword);
+    assert(key_len);
 
-    token temp_token = {};
-    temp_token.type  = KEYWORD;
-    temp_token.line  = lines;
-    temp_token.value.keyword = keyword;
+    #define KEYWORD(name, key, ident)                                       \
+                    else if (!strncmp(ident, position, sizeof(ident) - 1))  \
+                    {                                                       \
+                        *key_len = sizeof(ident) - 1;                       \
+                        *keyword = key;                                     \
+                        return true;                                        \
+                    }
 
-    if(!array_push(tokens, &temp_token))
-        return 0;
-    return 1;
+                    if (0) {} 
+    #include "../KEYWORDS"
+    #undef KEYWORD 
+
+    return false;
 }
 
 
-static int make_ident(array* tokens, array* idents, char* ident, size_t ident_size)
+static bool push_keyword(array* tokens, int keyword, size_t line)
 {
     assert(tokens);
 
+    token temp_token               = {};
+          temp_token.type          = KEYWORD;
+          temp_token.line          = line;
+          temp_token.value.keyword = keyword;
+
+    if(!array_push(tokens, &temp_token))
+        return false;
+
+    return true;
+}
+
+
+static bool is_number(array* tokens, char* position, double* number, size_t* num_len) 
+{
+    assert(tokens);
+    assert(position);
+    assert(number);
+    assert(num_len);
+
+    if(!(isdigit(*position) || is_keyword_before(tokens) && *position == '-' && isdigit(*(position + 1))))
+        return false;
+
+    sscanf(position, "%lf%n", number, (int* )num_len);
+    return true;
+}
+
+
+static bool push_number(array* tokens, double number, size_t line)
+{
+    assert(tokens);
+
+    token temp_token              = {};
+          temp_token.type         = NUMBER;
+          temp_token.line         = line;
+          temp_token.value.number = number;
+
+    if(!array_push(tokens, &temp_token))
+        return false;
+
+    return true;
+}
+
+
+static bool push_ident(array* tokens, array* idents, char* position, size_t id_len, size_t line)
+{
+    assert(tokens);
+    assert(idents);
+    assert(position);
+
     token temp_token = {};
     temp_token.type  = IDENT;
-    temp_token.line  = lines;
+    temp_token.line  = line;
 
     char** idents_data = (char** )idents->data;
     for(size_t i = 0; i < idents->size; i++)
     {
-        if(!strncmp(ident, idents_data[i], ident_size) && ident_size == strlen(idents_data[i]))
+        if(!strncmp(position, idents_data[i], id_len) && id_len == strlen(idents_data[i]))
         {
             temp_token.value.ident = idents_data[i];
             break;
@@ -112,135 +162,33 @@ static int make_ident(array* tokens, array* idents, char* ident, size_t ident_si
 
     if(!temp_token.value.ident)
     {
-        char* temp_ident = (char* )calloc(ident_size + 1, sizeof(char));
+        char* temp_ident = (char* )calloc(id_len + 1, sizeof(char));
         if(!temp_ident)
-            return 0;
+            return false;
 
-        memcpy(temp_ident, ident, ident_size);
-        temp_ident[ident_size] = '\0';
+        memcpy(temp_ident, position, id_len);
+        temp_ident[id_len]     = '\0';
         temp_token.value.ident = temp_ident;
 
         if(!array_push(idents, &temp_ident))
-            return 0;
+            return false;
     }
     
     if(!array_push(tokens, &temp_token))
-        return 0;
+        return false;
     
-    return 1;
-}
-
-
-static int make_number(array* tokens)
-{
-    assert(tokens);
-
-    token temp_token = {};
-    temp_token.type  = NUMBER;
-    temp_token.line  = lines;
-    
-    int n_digits = 0;
-    sscanf(iterator, "%lf%n", &temp_token.value.number, &n_digits);
-    iterator += n_digits;
-    
-    if(!array_push(tokens, &temp_token))
-        return 0;
-
-    return 1;
+    return true;
 }
 
 
 static bool is_keyword_before(array* tokens)
 {
-    return ((*((token *)((char* )tokens->data + (tokens->size - 1) * tokens->item_size))).type == KEYWORD);
+    if(!tokens->size)
+        return false;
+
+    return ((*((token *)((char* )tokens->data + (tokens->size - 1) * sizeof(token)))).type == KEYWORD);
 }
 
-
-static int is_linkable(int* _keyword, size_t* keyword_length)
-{
-    assert(_keyword);
-    assert(keyword_length);
-    
-    #define LINKABLE(X) X
-    #define UNLINKABLE(X)
-    #define KEYWORD(name, keyword, ident)                                   \
-                    else if (!strncmp(ident, iterator, sizeof(ident) - 1))  \
-                    {                                                       \
-                        *_keyword = keyword;                                \
-                        *keyword_length = sizeof(ident) - 1;                \
-                        return 1;                                           \
-                    }
-
-                    if (0) {} 
-    #include "../KEYWORDS"
-    #undef LINKABLE
-    #undef UNLINKABLE 
-    #undef KEYWORD 
-
-    return 0;
-}
-
-
-static int is_unlinkable(int* _keyword, size_t* keyword_length)
-{
-    assert(_keyword);
-    assert(keyword_length);
-
-    #define LINKABLE(X)
-    #define UNLINKABLE(X) X
-    #define KEYWORD(name, keyword, ident)                                   \
-                    else if (!strncmp(ident, iterator, sizeof(ident) - 1))  \
-                    {                                                       \
-                        *_keyword = keyword;                                \
-                        *keyword_length = sizeof(ident) - 1;                \
-                        return 1;                                           \
-                    }
-
-                    if (0) {} 
-    #include "../KEYWORDS"
-    #undef LINKABLE
-    #undef UNLINKABLE 
-    #undef KEYWORD 
-
-    return 0;
-}
-
-
-static void find_ending(size_t* token_length)
-{
-    char* begin = iterator;
-
-    while(!is_unlinkable((int* )token_length, token_length) && !isspace(*iterator) && strncmp(iterator, "/*", 2) && *iterator != '\0')
-        iterator++;
-    
-    *token_length = (size_t)(iterator - begin);
-                             iterator = begin;
-}
-
-
-#define make_keyword(A, B)                                          \
-    if(!make_keyword(A, B))                                         \
-    {                                                               \
-        free(buf);                                                  \
-        fprintf(stderr, "Allocation error at line %d\n", __LINE__); \
-        return nullptr;                                             \
-    }
-
-#define make_ident(A, B, C, D)                                      \
-    if(!make_ident(A, B, C, D))                                     \
-    {                                                               \
-        free(buf);                                                  \
-        fprintf(stderr, "Allocation error at line %d\n", __LINE__); \
-        return nullptr;                                             \
-    }
-
-#define make_number(A)                                              \
-    if(!make_number(A))                                             \
-    {                                                               \
-        free(buf);                                                  \
-        fprintf(stderr, "Allocation error at line %d\n", __LINE__); \
-        return nullptr;                                             \
-    }
 
 token* tokenize(const char* file_path, array* idents, array* tokens)
 {
@@ -253,76 +201,81 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
     array_ctor(tokens, sizeof(token ));
     array_ctor(idents, sizeof(char *));
  
-    iterator = buf;
+    char*  iterator = buf;
+    size_t lines    = 1;
 
     while(*iterator != '\0')
     {
-        skip_spaces();
+        skip_spaces(&iterator, &lines);
 
         if(*iterator == '\0')
             break;
 
- int    keyword = 0;
- size_t keyword_length = 0;
- size_t token_length = 0;
+        int    keyword = 0;
+        double number  = 0;
+        size_t tok_len = 0;
 
-        if(isdigit(*iterator) || is_keyword_before(tokens) && *iterator == '-' && isdigit(*(iterator + 1)))
+        if(is_keyword(iterator, &keyword, &tok_len))
         {
-            make_number(tokens);
+            if(!push_keyword(tokens, keyword, lines))
+            {
+                free(buf);
+                return nullptr;
+            }
+            iterator += tok_len;
             continue;
         }
 
-        if(is_unlinkable(&keyword, &keyword_length))
+        if(is_number(tokens, iterator, &number, &tok_len))
         {
-            make_keyword(tokens, keyword);
-            iterator += keyword_length;
+            if(!push_number(tokens, number, lines))
+            {
+                free(buf);
+                return nullptr;
+            }
+            iterator += tok_len;
             continue;
         }
 
-        find_ending(&token_length);
+        char* begin = iterator;
 
-        if(is_linkable(&keyword, &keyword_length) && keyword_length == token_length)
+        while(!is_keyword(iterator, &keyword, &tok_len) && *iterator != '\0')
+            iterator++;
+            
+        iterator--;
+        while(isspace(*iterator))
+            iterator--;
+        iterator++;
+
+        if(!push_ident(tokens, idents, begin, iterator - begin, lines))
         {
-            make_keyword(tokens, keyword)
-            iterator += keyword_length;
-            continue;
+            free(buf);
+            return nullptr;
         }
-
-        make_ident(tokens, idents, iterator, token_length)
-
-        iterator += token_length;    
     }
-
-    make_keyword(tokens, KEY_STOP)
-
     free(buf);
+
+    if(!push_keyword(tokens, '$', lines))
+        return nullptr;
+
     tokens_dump(tokens, "logfiles/token_dump.txt");
 
     return (token* )tokens->data;
 }
 
-#undef make_keyword
-#undef make_ident
-#undef make_number 
-
 
 static const char* keyword_string(int type)
 {
-    #define LINKABLE(X)  X
-    #define UNLINKABLE(X) X
     #define KEYWORD(name, keyword, ident)      \
                     else if (keyword == type)  \
                         return ident;                      
 
                     if (0) {} 
     #include "../KEYWORDS"
-    #undef LINKABLE
-    #undef UNLINKABLE 
     #undef KEYWORD 
 
     return nullptr;
 }
-
 
 static int tokens_dump(const array* const tokens, const char* dump_file_path)
 {
@@ -332,7 +285,7 @@ static int tokens_dump(const array* const tokens, const char* dump_file_path)
         return 0;
     
     dump_init(fp, tokens);
-    fprintf(fp, "|====|==========|==========|========================|\n");
+    fprintf(fp, "|====|==========|==========|========================================================================\n");
 
     for(size_t i = 0; i < tokens->size; i++)
     {
@@ -340,19 +293,19 @@ static int tokens_dump(const array* const tokens, const char* dump_file_path)
         switch(temp_token.type)
         {
             case KEYWORD:
-                fprintf(fp, "|%-4zu|LINE: %-4zu|KEYWORD   |VALUE:   %-15s|\n"
-                            "|====|==========|==========|========================|\n", i + 1, temp_token.line, keyword_string(temp_token.value.keyword));
+                fprintf(fp, "|%-4zu|LINE: %-4zu|KEYWORD   |VALUE:   %-15s\n"
+                            "|====|==========|==========|========================================================================\n", i + 1, temp_token.line, keyword_string(temp_token.value.keyword));
                 break;
             case NUMBER:
-                fprintf(fp, "|%-4zu|LINE: %-4zu|NUMBER    |VALUE:   %-15lg|\n"
-                            "|====|==========|==========|========================|\n", i + 1, temp_token.line, temp_token.value.number);
+                fprintf(fp, "|%-4zu|LINE: %-4zu|NUMBER    |VALUE:   %-15lg\n"
+                            "|====|==========|==========|========================================================================\n", i + 1, temp_token.line, temp_token.value.number);
                 break;
             case IDENT:
-                fprintf(fp, "|%-4zu|LINE: %-4zu|IDENT     |VALUE:   %-15s|\n"
-                            "|====|==========|==========|========================|\n", i + 1, temp_token.line, temp_token.value.ident);
+                fprintf(fp, "|%-4zu|LINE: %-4zu|IDENT     |VALUE:   %-15s\n"
+                            "|====|==========|==========|========================================================================\n", i + 1, temp_token.line, temp_token.value.ident);
                 break;
             default:
-                break;
+                return 0;
         }
     }
     return 1;
