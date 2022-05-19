@@ -8,7 +8,6 @@
 #include <assert.h>
 
 #include "../tree.h"
-#include "../stack.h"
 #include "../array.h"
 #include "../symtable.h"
 

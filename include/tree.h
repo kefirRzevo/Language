@@ -7,6 +7,7 @@
 #include <assert.h>
 #include <iostream>
 #include <math.h>
+#include "array.h"
 
 
 #define OPER_SPEC  "s"
@@ -61,6 +62,7 @@ Tree*   tree_ctor(Tree** p_tree);
 Tree*   tree_dtor(Tree*  p_tree);
 Tree*   tree_dump(Tree*  p_tree);
 Tree*   tree_write(Tree* p_tree, const char* filepath);
+Tree*   tree_read(array* idents, const char* filepath);
 
 bool  is_number  (Node* node);
 bool  is_natural (Node* node);

@@ -4,6 +4,8 @@ static size_t N_DUMPS = 0;
 static FILE*  LOGFILE = nullptr;
 static FILE*  dump_init();
 
+
+
 sym_table* create_sym_table(sym_table* table, int init_shift)
 {
     assert(table);
@@ -150,23 +152,23 @@ $$
 func* find_function(sym_table* table, Node* func_node)
 {
     assert(table);
-    
+$$
     if(!func_node)
         return nullptr;
-
-    if(!is_operator(func_node, FUNC))
+$$
+    if(!is_operator(func_node, CALL))
         return nullptr;
-
+$$
     if(!is_ident(func_node->Left))
         return nullptr;
-
+$$
     for(size_t i = 0; i < table->functions.size; i++)
     {
         func temp_func = {};
         memcpy(&temp_func, (char* )table->functions.data + i * sizeof(func), sizeof(func));
-        
+        $$
         if(!strcmp(temp_func.name, is_ident(func_node->Left)))
-        {
+        { $$
             size_t n_params = 0;
             func_node = func_node->Right;
 
@@ -178,12 +180,12 @@ func* find_function(sym_table* table, Node* func_node)
                 n_params++;
                 func_node = func_node->Left;
             }
-
+$$
             if(temp_func.n_params == n_params)
                 return (func* )((char* )table->functions.data + i * sizeof(func));
         }
     }
-
+$$
     return nullptr;
 }
 

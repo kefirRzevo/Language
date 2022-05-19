@@ -9,7 +9,6 @@
 #include <time.h>
 
 #include "../tree.h"
-#include "../stack.h"
 #include "lexer.h"
 
 Tree* create_tree(array* tokens);

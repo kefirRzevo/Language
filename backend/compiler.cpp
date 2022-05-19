@@ -3,6 +3,7 @@
 
 
 FILE* file = nullptr;
+const char* MAIN = "main";
 
 static const char*  MAS_REG = "rsi";
 static const char*  POS_REG = "rsp";
@@ -27,6 +28,7 @@ static Node* compile_return    (Node* node, sym_table* table);
 static Node* compile_if        (Node* node, sym_table* table);
 
 
+static Node* find_main(sym_table* table);
 static const char* write_shift    (int adress);
 static const char* write_to_memory(int adress);
 static const char* write_number   (double number);
@@ -67,6 +69,9 @@ $$
 $$
     if(!get_defined_funcs(p_tree->root, &table))
         return nullptr;
+
+    if(!find_main(&table))
+        return (Tree* )syntax_error("main function without params", nullptr);
 $$
     call("main");
     hlt();
@@ -142,7 +147,7 @@ $$
             return node;
 
         case PRINT:$$
-            if(!compile_expression(node->Right->Left, table))
+            if(!compile_expression(node->Right->Right, table))
                 return nullptr;
             out();$$
             return node;
@@ -254,11 +259,11 @@ $$
     if(!is_operator(node, CALL))
         return nullptr;
 $$
-    func* temp_func = find_function(table, node->Left);
+    func* temp_func = find_function(table, node);
     if(!temp_func)
         return syntax_error("defined function", node->Left);
 $$
-    Node* param_node = node->Left->Right;
+    Node* param_node = node->Right;
     size_t n_params = 0;
     while(param_node)
     {$$
@@ -270,9 +275,10 @@ $$
     }
 $$
     if(n_params != temp_func->n_params)
-        return syntax_error("as many params as in defined function", node->Left->Left);
+        return syntax_error("as many params as in defined function", node->Left);
 $$
     size_t shift = count_shift_size(table);
+    
     push(POS_REG);
     push(write_number((double)shift));
     add();
@@ -457,19 +463,22 @@ $$
 static Node* syntax_error(const char* waited, Node* node)
 {
     assert(waited);
-    assert(node);
 $$
-    fprintf(stderr, "Mistake: waited \"%s\", in fact ", waited);  
+    fprintf(stderr, "Mistake: waited \"%s\"", waited);  
+
+    if(!node)
+        return nullptr;
+
     switch(node->Type)                                                                             
     {                                                                                                           
         case OPER:$$   
-            fprintf(stderr, "OPERATOR \"%s\".\n", get_oper_string(node)); 
+            fprintf(stderr, ", in fact OPERATOR \"%s\".\n", get_oper_string(node)); 
             break;                                                                                  
         case ID:$$    
-            fprintf(stderr, "IDENTIFICATOR \"%s\".\n", node->Value.ident);             
+            fprintf(stderr, ", in fact IDENTIFICATOR \"%s\".\n", node->Value.ident);             
             break;                                                                                  
         case NUM:$$    
-            fprintf(stderr, "NUMBER \"%lg\".\n", get_number(node));                  
+            fprintf(stderr, ", in fact NUMBER \"%lg\".\n", get_number(node));                  
             break;                                                                                  
         default:        
             fprintf(stderr, "Unpredictable error.\n");
@@ -532,4 +541,19 @@ static const char* create_label(const char* name, void* ptr)
 {
     snprintf(BUFFER, BUF_SIZE, "%s_%p", name, ptr);
     return BUFFER;
+}
+
+static Node* find_main(sym_table* table)
+{
+    assert(table);
+
+    for(size_t i = 0; i < table->functions.size; i++)
+    {
+        func temp_func = {};
+        memcpy(&temp_func, (char* )table->functions.data + i * sizeof(func), sizeof(func));
+        if(!strcmp(temp_func.name, MAIN) && !temp_func.n_params)
+            return temp_func.declared;
+    }
+
+    return nullptr;
 }

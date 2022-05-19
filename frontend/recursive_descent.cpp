@@ -57,7 +57,7 @@ static Node* print_error(const char* waited)
 
 
 //#ifdef DEBUG
-#define $$ fprintf(stderr, "%d\t%zu\n", __LINE__, iterator);
+//#define $$ fprintf(stderr, "%d\t%zu\n", __LINE__, iterator);
 //#endif
 /*#ifndef DEBUF
 #define $$
@@ -405,8 +405,7 @@ static Node* GetFunction()
 
     if(is_ident(iterator) && is_keyword(iterator + 1, KEY_OPEN))
     {
-        Node* new_node = create_oper(CALL, create_oper(FUNC, create_ident(is_ident(iterator), 
-                                           nullptr, nullptr), nullptr), nullptr);
+        Node* new_node = create_oper(CALL, create_ident(is_ident(iterator), nullptr, nullptr), nullptr);
 
         iterator+=2;
 
@@ -418,7 +417,7 @@ static Node* GetFunction()
         {
             Node* param_node  = create_oper(PARAM, nullptr, GetExpression());
             ass(param_node->Right);
-            new_node->Left->Right = param_node;
+            new_node->Right = param_node;
 
             while(is_keyword(iterator, KEY_COMMA) && !is_keyword(iterator, KEY_STOP))
             {
@@ -426,8 +425,8 @@ static Node* GetFunction()
                 
                 param_node = create_oper(PARAM, nullptr, GetExpression());
                 ass(param_node->Right);
-                param_node->Left = new_node->Left->Right;
-                new_node->Left->Right = param_node;
+                param_node->Left = new_node->Right;
+                new_node->Right = param_node;
             }
             if(is_keyword(iterator, KEY_CLOSE))
                 iterator++;
@@ -553,8 +552,8 @@ static Node* GetOperation()
     {
         iterator+=2;
 
-        Node* new_node = create_oper(PRINT, GetExpression(), nullptr);
-        ass(new_node->Left);
+        Node* new_node = create_oper(PRINT, nullptr, GetExpression());
+        ass(new_node->Right);
 
         if(!is_keyword(iterator, KEY_CLOSE) || !is_keyword(iterator + 1, KEY_SEMICOL))
         {
