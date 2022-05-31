@@ -4,7 +4,7 @@ static const char* keyword_string(int type);
 static size_t create_buf(const char* file_path, char** buf);
 static int    tokens_dump(const array* const tokens, const char* dump_file_path);
 
-static void skip_spaces(char** position);
+static void skip_spaces(char** position, size_t* lines);
 static bool is_keyword_before(array* tokens);
 
 static bool   is_keyword(char* position, int*   keyword, size_t* key_len);
@@ -116,7 +116,7 @@ static bool is_number(array* tokens, char* position, double* number, size_t* num
     assert(number);
     assert(num_len);
 
-    if(!(isdigit(*position) || is_keyword_before(tokens) && *position == '-' && isdigit(*(position + 1))))
+    if(!(isdigit(*position) || (is_keyword_before(tokens) && *position == '-' && isdigit(*(position + 1)))))
         return false;
 
     sscanf(position, "%lf%n", number, (int* )num_len);
@@ -215,9 +215,9 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
         double number  = 0;
         size_t tok_len = 0;
 
-        if(is_keyword(iterator, &keyword, &tok_len))
+        if(is_number(tokens, iterator, &number, &tok_len))
         {
-            if(!push_keyword(tokens, keyword, lines))
+            if(!push_number(tokens, number, lines))
             {
                 free(buf);
                 return nullptr;
@@ -226,9 +226,9 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
             continue;
         }
 
-        if(is_number(tokens, iterator, &number, &tok_len))
+        if(is_keyword(iterator, &keyword, &tok_len))
         {
-            if(!push_number(tokens, number, lines))
+            if(!push_keyword(tokens, keyword, lines))
             {
                 free(buf);
                 return nullptr;
@@ -247,7 +247,7 @@ token* tokenize(const char* file_path, array* idents, array* tokens)
             iterator--;
         iterator++;
 
-        if(!push_ident(tokens, idents, begin, iterator - begin, lines))
+        if(!push_ident(tokens, idents, begin, (size_t)(iterator - begin), lines))
         {
             free(buf);
             return nullptr;
