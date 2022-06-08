@@ -15,7 +15,6 @@ static FILE*  LOG           = nullptr;
 
 static FILE* dump_init(const char* dump_path);
 static void  dump_close();
-static void  create_dump(Tree* p_tree, char* img_path);
 static void  make_one_dump(Tree* p_tree, char* img_path);
 static const char* oper_name(Node* node);
 

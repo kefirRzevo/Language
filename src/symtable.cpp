@@ -5,7 +5,6 @@ static FILE*  LOGFILE = nullptr;
 static FILE*  dump_init();
 
 
-
 sym_table* create_sym_table(sym_table* table, int init_shift)
 {
     assert(table);
@@ -94,7 +93,6 @@ func* add_function(sym_table* table, Node* func_node)
     if(!is_ident(func_node->Left))
         return nullptr;
 
-    Node* node = func_node;
     func temp_func = {};
 
     temp_func.name     = is_ident(func_node->Left);
@@ -221,7 +219,7 @@ size_t count_shift_size(sym_table* table)
 {
     assert(table);
 
-    size_t shift   = table->shift;
+    size_t shift   = (size_t)table->shift;
     array temp_arr = {};
     memcpy(&temp_arr, table->scoop_levels.data, sizeof(array));
 

@@ -33,7 +33,7 @@ static const char* write_shift    (int adress);
 static const char* write_to_memory(int adress);
 static const char* write_number   (double number);
 static       void  write_msg      (const char* msg);
-static const void  write_label    (const char* label);
+static       void  write_label    (const char* label);
 static       FILE* open_file      (const char* filepath);
 static const char* create_label   (const char* name, void* ptr);
 static       Node* syntax_error   (const char* waited, Node* node);
@@ -181,7 +181,7 @@ $$
 $$
     if(found)
     {
-        if(!(found->declared->Right && node->Left->Right || !found->declared->Right && !node->Left->Right))
+        if(!((found->declared->Right && node->Left->Right) || (!found->declared->Right && !node->Left->Right)))
             return syntax_error("not redefenition", node->Left);
 $$
         if(found->is_const)
@@ -527,7 +527,7 @@ static const char* write_number(double number)
     return BUFFER;
 }
 
-static const void write_label(const char* label)
+static void write_label(const char* label)
 {
     fprintf(file, "%s:\n", label);
 }

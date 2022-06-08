@@ -8,13 +8,13 @@ push 1
 push [rsp + 0]
 equ
 push 0
-jne true_0x6000003f12c0
-jmp continue_0x6000003f12c0
-true_0x6000003f12c0:
+jne true_0x600001964140
+jmp continue_0x600001964140
+true_0x600001964140:
 push 1
 pop rax
 ret
-continue_0x6000003f12c0:
+continue_0x600001964140:
 push 1
 push [rsp + 0]
 sub
@@ -34,38 +34,83 @@ pop rax
 ret
 ret
 main:
-in
 push 10
+push 9
+pop rsi
+pop [rsp + 0 + rsi]
+push 9
+push 8
+pop rsi
+pop [rsp + 0 + rsi]
+push 8
+push 7
+pop rsi
+pop [rsp + 0 + rsi]
+push 7
+push 6
+pop rsi
+pop [rsp + 0 + rsi]
+push 6
+push 5
+pop rsi
+pop [rsp + 0 + rsi]
+push 5
+push 4
+pop rsi
+pop [rsp + 0 + rsi]
+push 4
+push 3
+pop rsi
+pop [rsp + 0 + rsi]
+push 3
+push 2
+pop rsi
+pop [rsp + 0 + rsi]
+push 2
+push 1
+pop rsi
+pop [rsp + 0 + rsi]
+push 1
+push 0
+pop rsi
+pop [rsp + 0 + rsi]
+in
+push 9
 pop rsi
 pop [rsp + 0 + rsi]
 push 0
-pop [rsp + 11]
-again_0x6000003f16a0:
+pop [rsp + 10]
+again_0x600001964b60:
 push 11
-push [rsp + 11]
+push [rsp + 10]
 low
 push 0
-je continue_0x6000003f16a0
-push [rsp + 11]
+je continue_0x600001964b60
+push [rsp + 10]
 pop rsi
 push [rsp + 0 + rsi]
 out
 push 1
-push [rsp + 11]
+push [rsp + 10]
 add
+pop [rsp + 10]
+push 3
 pop [rsp + 11]
-jmp again_0x6000003f16a0
-continue_0x6000003f16a0:
+jmp again_0x600001964b60
+continue_0x600001964b60:
 in
 push rsp
-push 12
+push 11
 add
 pop rsp
 call fucktorial
 push rax
-push 12
+push 11
 push rsp
 sub
 pop rsp
 out
+push 10
+pop rax
+ret
 ret

@@ -2,7 +2,6 @@
 #include <unistd.h>
 
 #include "../include/frontend/recursive_decent.h"
-#include "../include/frontend/recursive_decent.h"
 
 static       size_t iterator    = 0;
 static const token* p_tokens    = nullptr;
@@ -194,8 +193,8 @@ static Node* GetGrammar()
         ass(new_node->Right);
         node = new_node;        
     }
-    if(is_keyword(iterator, KEY_CONST) || is_ident(iterator) && is_keyword(iterator + 1, KEY_ASSIGN) ||
-                                          is_ident(iterator) && is_keyword(iterator + 1, KEY_QOPEN ))
+    if(is_keyword(iterator, KEY_CONST) || (is_ident(iterator) && is_keyword(iterator + 1, KEY_ASSIGN)) ||
+                                          (is_ident(iterator) && is_keyword(iterator + 1, KEY_QOPEN )))
     {
         return print_error("assignment at the beginning");
     }
@@ -296,8 +295,8 @@ static Node* GetAssign()
             
             node = new_node;
         }
-        else if(is_keyword(iterator + 1, KEY_QOPEN)  && is_number(iterator + 2) && is_keyword(iterator + 3, KEY_QCLOSE) 
-             && is_keyword(iterator + 4, KEY_ASSIGN) && is_keyword(iterator + 5, KEY_BEGIN) && is_number(iterator + 6))
+        else if((bool)is_keyword(iterator + 1, KEY_QOPEN)  && (bool)is_number(iterator + 2) && (bool)is_keyword(iterator + 3, KEY_QCLOSE) 
+             && (bool)is_keyword(iterator + 4, KEY_ASSIGN) && (bool)is_keyword(iterator + 5, KEY_BEGIN) && (bool)is_number(iterator + 6))
         {
             size_t mas_size  = is_natural(is_number(iterator + 2));
             int    mas_index = 0; 
@@ -322,7 +321,7 @@ static Node* GetAssign()
 
             if(is_keyword(iterator, KEY_END))
             {
-                while(mas_index < mas_size)
+                while(mas_index < (int)mas_size)
                 {
                     if(is_const)
                         new_node->Left = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
@@ -337,7 +336,7 @@ static Node* GetAssign()
             }
             else
             {            
-                while(is_keyword(iterator, KEY_COMMA) && is_number(iterator + 1) && !is_keyword(iterator + 1, KEY_STOP))
+                while((bool)is_keyword(iterator, KEY_COMMA) && (bool)is_number(iterator + 1) && !(bool)is_keyword(iterator + 1, KEY_STOP))
                 {
                     if(is_const)
                         new_node->Left = create_oper(STATEMENT, nullptr, create_oper(ASSIGN, create_ident(mas_ident, create_oper(CONST, nullptr, nullptr), create_num((double)mas_index, 
@@ -351,7 +350,7 @@ static Node* GetAssign()
                     mas_index++;
                 }
 
-                if(mas_index != mas_size)
+                if(mas_index != (int)mas_size)
                     return print_error("same number elements as massive size");
 
             }
@@ -805,7 +804,7 @@ static Node* GetU()
 
         iterator++;
     }
-    else if(is_number(iterator))
+    else if((bool)is_number(iterator))
     {
         node = create_num(is_number(iterator), nullptr, nullptr);
         iterator++;
