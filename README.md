@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a repository for my language. 
+This my own language. The parser uses recursive descent and then it creates a tree. After that this tree is compiling into asmcode. Then this asmcode is runned by my own processor (prepared program is "proc", I made it before).
 
 ## How to use
 1) Copy For usage
@@ -15,6 +15,7 @@ For usage:
 git clone https://github.com/GermanAreYouCrazy/Language.git
 cd Language
 make
-./a.exe
+./app
+./proc
 ```
 
