@@ -7,9 +7,9 @@
 #include <string.h>
 #include <assert.h>
 
-#include "../tree.h"
-#include "../array.h"
-#include "../symtable.h"
+#include "../include/tree.h"
+#include "../include/array.h"
+#include "../include/symtable.h"
 
 Tree* compile_tree(const char* filepath, Tree* p_tree);
 

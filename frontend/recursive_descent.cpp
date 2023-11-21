@@ -1,7 +1,7 @@
 #include <math.h>
 #include <unistd.h>
 
-#include "../include/frontend/recursive_decent.h"
+#include "recursive_decent.h"
 
 static       size_t iterator    = 0;
 static const token* p_tokens    = nullptr;
@@ -72,7 +72,7 @@ static const char* keyword_string(int type)
                         return ident;                      
 
                     if (0) {} 
-    #include "../KEYWORDS"
+    #include "../res/KEYWORDS"
     #undef LINKABLE
     #undef UNLINKABLE 
     #undef KEYWORD 

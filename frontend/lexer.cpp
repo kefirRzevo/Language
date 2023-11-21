@@ -1,4 +1,4 @@
-#include "../include/frontend/lexer.h"
+#include "lexer.h"
 
 static const char* keyword_string(int type);
 static size_t create_buf(const char* file_path, char** buf);
@@ -86,7 +86,7 @@ static bool is_keyword(char* position, int* keyword, size_t* key_len)
                     }
 
                     if (0) {} 
-    #include "../KEYWORDS"
+    #include "../res/KEYWORDS"
     #undef KEYWORD 
 
     return false;
@@ -271,7 +271,7 @@ static const char* keyword_string(int type)
                         return ident;                      
 
                     if (0) {} 
-    #include "../KEYWORDS"
+    #include "../res/KEYWORDS"
     #undef KEYWORD 
 
     return nullptr;

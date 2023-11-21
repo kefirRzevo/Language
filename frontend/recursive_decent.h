@@ -8,7 +8,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "../tree.h"
+#include "../include/tree.h"
 #include "lexer.h"
 
 Tree* create_tree(array* tokens);

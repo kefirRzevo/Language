@@ -186,7 +186,7 @@ const char* get_oper_string(Node* node)
                     return ident;                      
 
                 if (0) {} 
-    #include "../STANDARD_TREE"
+    #include "../res/STANDARD_TREE"
     #undef OPER
 
     return nullptr;

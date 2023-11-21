@@ -115,7 +115,7 @@ static const char* oper_name(Node* node)
                         return ident;                      
 
                     if (0) {} 
-    #include "../STANDARD_TREE"
+    #include "../res/STANDARD_TREE"
     #undef OPER
 
     return nullptr;
@@ -341,7 +341,7 @@ static int get_oper(char** iterator)
                 }
 
                 if (0) {} 
-    #include "../STANDARD_TREE"
+    #include "../res/STANDARD_TREE"
     #undef OPER
     return 0;
 }

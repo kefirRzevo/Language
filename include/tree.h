@@ -21,7 +21,7 @@ enum OperType
 {
     #define OPER(name, keyword, ident)   \
         name = keyword,
-        #include "../STANDARD_TREE"
+        #include "../res/STANDARD_TREE"
     #undef OPER
 };
 

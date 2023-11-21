@@ -6,7 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "../array.h"
+#include "../include/array.h"
 
 enum tok_keyword
 {
@@ -14,7 +14,7 @@ enum tok_keyword
     #define UNLINKABLE(X) X
     #define KEYWORD(name, keyword, ident)   \
         name = keyword,
-        #include "../../KEYWORDS"
+        #include "../res/KEYWORDS"
     #undef LINKABLE
     #undef UNLINKABLE 
     #undef KEYWORD        
