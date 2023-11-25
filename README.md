@@ -12,7 +12,7 @@ This my own language. The parser uses recursive descent and then it creates a tr
 For usage:
 
 ```
-git clone https://github.com/GermanAreYouCrazy/Language.git
+git clone https://github.com/kefirRzevo/Language.git
 cd Language
 make
 ./app
